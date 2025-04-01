@@ -8,9 +8,9 @@ const Cloundinary=require('../lib/Cloundinary')
 
 module.exports.signup = async (req, res) => {
   try {
-    const { firstName,lastName, email, password, ProfilePic, role } = req.body;
+    const { firstName,lastName, email, password,role } = req.body;
 
-    if(!firstName||!lastName||! email||!password||! ProfilePic||!role){
+    if(!firstName||!lastName||! email||!password||!role){
         return res.status(400).json({ error: "Please provide all neccessary information" });
     }
 
@@ -71,7 +71,7 @@ module.exports.signup = async (req, res) => {
 module.exports.login=async(req,res)=>{
     try {
         
-     const {email,password}=req.body;
+      const {email,password}=req.body;
 
      const duplicatedUser=await User.findOne({email})
 
