@@ -14,6 +14,13 @@ module.exports.signup = async (req, res) => {
         .status(400)
         .json({ error: "Please provide all neccessary information" });
     }
+    const validRoles = ["Teacher", "Manager", "Admin", "Student"];
+    if (!validRoles.includes(role)) {
+      return res.status(400).json({
+        error: "The role should be one of: Teacher, Manager, Admin, or Student",
+      });
+    }
+    
 
     const duplicatedUser = await User.findOne({ email });
     if (duplicatedUser) {

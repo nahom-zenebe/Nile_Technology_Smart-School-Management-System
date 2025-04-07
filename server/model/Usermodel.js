@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const crypto = require("crypto");
 const UserSchema = new mongoose.Schema(
   {
     firstName: {
@@ -37,7 +37,7 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-userSchema.methods.createPasswordResetToken = function () {
+UserSchema.methods.createPasswordResetToken = function () {
   const resetToken = crypto.randomBytes(32).toString("hex");
 
   this.passwordResetToken = crypto
