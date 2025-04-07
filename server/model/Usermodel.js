@@ -1,49 +1,55 @@
+const mongoose = require("mongoose");
 
-const mongoose=require('mongoose')
-
-
-
-
-const UserSchema= new mongoose.Schema({
-
-    firstName:{
-        type:String,
-        require:true
+const UserSchema = new mongoose.Schema(
+  {
+    firstName: {
+      type: String,
+      require: true,
     },
-    lastName:{
-        type:String,
-        require:true
+    lastName: {
+      type: String,
+      require: true,
     },
-    email:{
-        type:String,
-        require:true,
-        unique:true
+    email: {
+      type: String,
+      require: true,
+      unique: true,
     },
-    password:{
-        type:String,
-        require:true
-    }, 
-    role:{
-        type:String,
-        enum:['Teacher','Manager','Admin','Student'],
-        default:'Student',
-    
+    password: {
+      type: String,
+      require: true,
     },
-    ProfilePic:{
-        type:String
-   
-
+    role: {
+      type: String,
+      enum: ["Teacher", "Manager", "Admin", "Student"],
+      default: "Student",
     },
-    createdAt:{
-        type:Date,
-        default:Date.now
+    ProfilePic: {
+      type: String,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+  },
+  { timestamps: true }
+);
 
-    },},
-    { timestamps: true }
+userSchema.methods.createPasswordResetToken = function () {
+  const resetToken = crypto.randomBytes(32).toString("hex");
 
+  this.passwordResetToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
 
-)
+  this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 
-const User=mongoose.model("User",UserSchema)
+  return resetToken;
+};
 
-module.exports=User
+const User = mongoose.model("User", UserSchema);
+
+module.exports = User;
