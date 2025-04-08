@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const AttendanceSchema = new Schema({
-  attendanceId: {
-    type: String,
-    required: true,
-    unique: true
-  },
+ 
   studentId: {
     type: Schema.Types.ObjectId,
     ref: 'Student',
