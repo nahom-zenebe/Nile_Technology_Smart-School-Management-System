@@ -75,5 +75,43 @@ module.exports.createTeacherprofile=async(req,res)=>{
     console.error("Error during creating teacher profile:", error.message);
     res.status(400).json({ error: "Error during creating teacher profile: " + error.message });
     }
-
 }
+
+
+module.exports.createTeacherprofile=async(req,res)=>{
+    try{
+        const teachers=await Teacher.find()
+        .populate('subjects')
+        .populate('attendance')
+        .populate('assignedClasses');
+
+        res.status(200).json(teachers);
+
+    }
+    catch(error){
+        res.status(500).json({ error: error.message });
+    }
+}
+
+
+module.exports.getTeacherById=async(req,res)=>{
+    const {TeacherId}=req.params;
+    try{
+        const teacher=await Teacher.findById(TeacherId)
+        .populate('subjects')
+        .populate('attendance')
+        .populate('assignedClasses');
+
+        if (!teacher){
+            return res.status(404).json({ error: 'Teacher not found' });
+        }
+
+        res.status(200).json(teacher);
+
+
+    }
+    catch(error){
+        res.status(500).json({ error: error.message });
+    }
+}
+

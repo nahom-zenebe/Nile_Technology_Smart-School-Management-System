@@ -2,6 +2,7 @@ const express = require("express");
 const { MongoDBconfig } = require('./lib/mongodbconfig');
 const cors = require('cors');
 const authrouter = require('./router/Authrouter');
+const Teacherrouter = require('./router/Teacherrouter');
 require("dotenv").config();
 const PORT = process.env.PORT || 5002;
 const cookieParser = require("cookie-parser");
@@ -21,7 +22,8 @@ app.use(cors({
 app.use(express.json());
 
 app.use(cookieParser());
-app.use('/api/auth', authrouter);
+app.use("/api/auth", authrouter);
+app.use("api/teacher",Teacherrouter)
 
 
 app.listen(PORT, () => {
