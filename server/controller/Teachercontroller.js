@@ -114,4 +114,28 @@ module.exports.getTeacherById=async(req,res)=>{
         res.status(500).json({ error: error.message });
     }
 }
+module.exports.updateTeacher=async(req,res)=>{
+
+    try{
+        const {TeacherId}=req.params;
+        const {updateData}=req.body;
+
+
+        const updatedTeacher=await Teacher.findByIdAndUpdate(TeacherId,updateData,{new: true})
+
+       if(!updatedTeacher){
+        
+        return res.status(404).json({ error: 'Teacher not found' });
+
+       }
+
+      res.status(200).json(updatedTeacher);
+
+
+    }
+    catch(error){
+        res.status(400).json({ error: error.message });
+
+    }
+}
 
