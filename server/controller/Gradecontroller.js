@@ -39,7 +39,7 @@ catch(error){
 
 }
 
-module.exports.createGrade=async(req,res)=>{
+module.exports.getallGrade=async(req,res)=>{
     try{
       const grades=await Grade.find()
       .populate('studentId')
@@ -54,9 +54,10 @@ module.exports.createGrade=async(req,res)=>{
 }
 
 
-exports.getGradeById = async (req, res) => {
+module.exports.getGradeById = async (req, res) => {
     try {
-      const grade = await Grade.findById(req.params.id)
+        const {GraderId}=req.params;
+      const grade = await Grade.findById(GraderId)
         .populate('studentId')
         .populate('subjectId')
         .populate('teacherId');
@@ -71,9 +72,11 @@ exports.getGradeById = async (req, res) => {
 
 
 
-  exports.updateGrade = async (req, res) => {
+  module.exports.updateGrade = async (req, res) => {
     try {
-      const updatedGrade = await Grade.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const {GraderId}=req.params;
+        const {updatedData}=req.body
+      const updatedGrade = await Grade.findByIdAndUpdate(GraderId, updatedData, { new: true });
   
       if (!updatedGrade) return res.status(404).json({ message: 'Grade not found' });
   
@@ -84,9 +87,13 @@ exports.getGradeById = async (req, res) => {
   };
   
  
-  exports.deleteGrade = async (req, res) => {
+  module.exports.deleteGrade = async (req, res) => {
+
+
     try {
-      const deletedGrade = await Grade.findByIdAndDelete(req.params.id);
+
+        const {GraderId}=req.params;
+      const deletedGrade = await Grade.findByIdAndDelete(GraderId);
   
       if (!deletedGrade) return res.status(404).json({ message: 'Grade not found' });
   
