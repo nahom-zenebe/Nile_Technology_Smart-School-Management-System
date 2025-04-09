@@ -4,17 +4,17 @@ const { Schema } = mongoose;
 const GradeSchema = new Schema({
   
   studentId: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Student',
     required: true
   },
   subjectId: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Subject',
     required: true
   },
   teacherId: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Teacher',
     required: true
   },

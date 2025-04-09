@@ -12,20 +12,20 @@ const ClassSchema=new mongoose.Schema({
    },
 
    teacherId:{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref:"Teacher",
    
    },
    students:[{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref:"Student",
    }],
    subject: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Subject'
   },
   timetable: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Timetable'
   }]
 

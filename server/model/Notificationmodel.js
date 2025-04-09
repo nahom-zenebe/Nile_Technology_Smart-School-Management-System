@@ -18,7 +18,7 @@ const NotificationSchema=new mongoose.Schema({
    
    },
    targetUsers: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     refPath: 'targetUsersModel'
   }],

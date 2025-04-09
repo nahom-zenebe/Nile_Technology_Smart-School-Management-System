@@ -35,16 +35,16 @@ const TeacherSchema=new mongoose.Schema({
        
       },
       subjects:[{
-         type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
            ref:'Subject'
        }],
       attendance:[{
-        type: Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref: 'TeacherAttendance',
 }],
 
       assignedClasses:[ {
-            type:Schema.Types.ObjectId,
+            type:mongoose.Schema.Types.ObjectId,
             ref:"Class"
         }
       ],

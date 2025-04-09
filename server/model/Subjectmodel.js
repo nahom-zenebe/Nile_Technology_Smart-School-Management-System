@@ -7,12 +7,12 @@ const SubjectSchema=new mongoose.Schema({
         required: true,
       },
       TeacherId:{
-        type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Teacher"
         
       },
       ClassId:{
-        type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Class"
         
       },
