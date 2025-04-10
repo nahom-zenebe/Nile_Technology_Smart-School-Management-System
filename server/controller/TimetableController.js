@@ -43,7 +43,8 @@ module.exports.getAllTimetables = async (req, res) => {
 
 module.exports.getTimetableById = async (req, res) => {
   try {
-    const timetable = await Timetable.findById(req.params.id)
+    const{TimeID}=req.params;
+    const timetable = await Timetable.findById(TimeID)
       .populate('classID')
       .populate('subjectID')
       .populate('teacherID');
@@ -57,7 +58,10 @@ module.exports.getTimetableById = async (req, res) => {
 
 module.exports.updateTimetable = async (req, res) => {
   try {
-    const updated = await Timetable.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const{TimeID}=req.params;
+    const{updatedData}=req.body;
+    
+    const updated = await Timetable.findByIdAndUpdate(TimeID, updatedData, { new: true });
     if (!updated) return res.status(404).json({ message: 'Timetable not found' });
     res.json(updated);
   } catch (err) {
@@ -68,7 +72,8 @@ module.exports.updateTimetable = async (req, res) => {
 
 module.exports.deleteTimetable = async (req, res) => {
   try {
-    const deleted = await Timetable.findByIdAndDelete(req.params.id);
+    const{TimeID}=req.params;
+    const deleted = await Timetable.findByIdAndDelete(TimeID);
     if (!deleted) return res.status(404).json({ message: 'Timetable not found' });
     res.json({ message: 'Timetable deleted successfully' });
   } catch (err) {
