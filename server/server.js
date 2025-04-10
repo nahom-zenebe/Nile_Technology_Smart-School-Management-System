@@ -6,6 +6,7 @@ const Teacherrouter = require('./router/Teacherrouter');
 const Graderouter=require('./router/Graderouter')
 const Notificationrouter=require('./router/Notificationrouter')
 const Attendancerouter=require('./router/Attendancerouter')
+const Timetablerouter=require('./router/Timetablerouter')
 require("dotenv").config();
 const PORT = process.env.PORT || 5002;
 const cookieParser = require("cookie-parser");
@@ -30,6 +31,8 @@ app.use("/api/teacher",Teacherrouter)
 app.use("/api/grade",Graderouter)
 app.use("/api/Notification", Notificationrouter)
 app.use("/api/Attendance",Attendancerouter)
+app.use("/api/Timetable",Timetablerouter)
+
 app.listen(PORT, () => {
   MongoDBconfig();
   console.log(`The server is running at port ${PORT}`);
