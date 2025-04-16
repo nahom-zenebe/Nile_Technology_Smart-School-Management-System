@@ -8,7 +8,7 @@ const Notificationrouter=require('./router/Notificationrouter')
 const Attendancerouter=require('./router/Attendancerouter')
 const Timetablerouter=require('./router/Timetablerouter')
 const Feerouter=require('./router/Feerouter')
-const Studentrouter=require('./router/Studentrouter')
+const Studentrouter=require('./router/StudentRouter')
 require("dotenv").config();
 const PORT = process.env.PORT || 5002;
 const cookieParser = require("cookie-parser");
@@ -34,8 +34,8 @@ app.use("/api/grade",Graderouter)
 app.use("/api/Notification", Notificationrouter)
 app.use("/api/Attendance",Attendancerouter)
 app.use("/api/Timetable",Timetablerouter)
-app.use("api/Fee",Feerouter)
-app.use("api/student",Studentrouter)
+app.use("/api/Fee",Feerouter)
+app.use("/api/student",Studentrouter)
 
 app.listen(PORT, () => {
   MongoDBconfig();
