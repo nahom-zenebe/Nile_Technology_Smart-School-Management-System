@@ -1,15 +1,21 @@
-import React from 'react'
-import Sidebar from '../components/sidebar'
-import { Outlet } from 'react-router-dom'
-
-function Teacherpage() {
+import React from 'react';
+import Sidebar from '../components/sidebar';
+import { Outlet } from 'react-router-dom';
+function AdminDashboard() {
+  
   return (
-    <div className='flex'>
-        <Sidebar/>
-        <Outlet/>
+    <div className="flex bg-gray-200 min-h-screen">
 
+      <div className="fixed h-full">
+        <Sidebar />
+      </div>
+
+     
+      <div className="flex-1 pl-64"> 
+        <Outlet />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Teacherpage
+export default AdminDashboard

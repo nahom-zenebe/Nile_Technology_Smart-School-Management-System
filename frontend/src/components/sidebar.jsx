@@ -20,7 +20,7 @@ function Sidebar() {
       <nav className="space-y-2">
         <div className="flex items-center space-x-3 mt-8 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdDashboard className="text-xl" />
-          <Link to="">Dashboard</Link>
+          <Link to="/TeacherDashboard">Dashboard</Link>
         </div>
 
         <div className="flex items-center space-x-3 mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
