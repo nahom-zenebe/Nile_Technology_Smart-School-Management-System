@@ -7,6 +7,7 @@ import man2 from "../images/man2.jpg";
 import man3 from "../images/man3.jpg";
 import man4 from "../images/man4.jpg";
 import man5 from "../images/man5.jpg";
+import { Link, useNavigate } from 'react-router-dom';
 import {
   FaChalkboardTeacher,
   FaUsers,
@@ -23,6 +24,7 @@ import 'swiper/css';
 
 function Landingpage() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const navigator = useNavigate()
 
   const toggleAnswer = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -33,7 +35,7 @@ function Landingpage() {
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Hero Section */}
+  
         <section className="flex flex-col-reverse md:flex-row items-center py-16 mt-12 gap-8">
           <div className="w-full md:w-1/2">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
@@ -45,7 +47,7 @@ function Landingpage() {
               Revolutionizing education with cutting-edge technology
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
+              <button onClick={()=> navigator("/Teacherpage")} className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
                 Learn More
               </button>
               <button className="bg-green-500 hover:bg-green-700 ml-10  text-white font-bold py-3 px-6 rounded-lg">
@@ -58,7 +60,7 @@ function Landingpage() {
           </div>
         </section>
 
-        {/* Features Section */}
+
         <section className="py-16 mt-10">
           <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">Features</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
