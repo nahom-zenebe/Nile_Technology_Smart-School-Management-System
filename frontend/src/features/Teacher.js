@@ -209,19 +209,6 @@ extraReducers:(builder)=>{
 
 
 
- .addCase( getTopTeachersByQuantity.fulfilled,(state,action)=>{
-
-  state.gettopTeacher=action.payload.topTeachers || []
-
-
-})
-
-
-.addCase(  getTopTeachersByQuantity.rejected,(state,action)=>{
-
- toast.error( 'Error In founding  Teacher');
-})
-
 
 
 

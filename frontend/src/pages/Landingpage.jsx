@@ -48,7 +48,7 @@ function Landingpage() {
               <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
                 Learn More
               </button>
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
+              <button className="bg-green-500 hover:bg-green-700 ml-10  text-white font-bold py-3 px-6 rounded-lg">
                 Get Started
               </button>
             </div>

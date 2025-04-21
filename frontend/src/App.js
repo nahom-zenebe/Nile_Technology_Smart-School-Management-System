@@ -1,16 +1,17 @@
-
-
-
+import Teacher from './features/Teacher';
 import './index.css'; 
-import './pages/Landingpage'
 import Landingpage from './pages/Landingpage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Teacherpage from './pages/Teacherpage';
+
 function App() {
   return (
-    <div>
-<Landingpage />
-
-
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Landingpage />} />
+        <Route path='/Teacherpage' element={<Teacherpage />} />
+      </Routes>
+    </Router>
   );
 }
 
