@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 function AdminDashboard() {
   
   return (
-    <div className="flex bg-gray-200 min-h-screen">
+    <div className="flex  min-h-screen">
 
       <div className="fixed h-full">
         <Sidebar />

@@ -6,7 +6,7 @@ import { MdDashboard, MdAssignmentTurnedIn, MdNotificationsActive, MdSettings } 
 import { BsClipboardData } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-
+import { RiArrowDropDownLine } from "react-icons/ri";
 function Sidebar() {
   const dispatch = useDispatch();
   const navigator = useNavigate();
@@ -20,7 +20,7 @@ function Sidebar() {
       <nav className="space-y-2">
         <div className="flex items-center space-x-3 mt-8 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdDashboard className="text-xl" />
-          <Link to="/TeacherDashboard">Dashboard</Link>
+          <Link to="/Teacherpage/TeacherDashboard">Dashboard</Link>
         </div>
 
         <div className="flex items-center space-x-3 mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
@@ -50,7 +50,7 @@ function Sidebar() {
 
         <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <FaUserCircle className="text-xl" />
-          <Link to="">Profile</Link>
+          <Link to="/Teacherpage/Accountdetail">Account Setting</Link>
         </div>
 
         <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">

@@ -6,6 +6,8 @@ function Teacherpage() {
 
         <div className="bg-base-100">
         <TopNavbar />
+
+        <p>Welcome to Teacher Dashboard</p>
     </div>
   );
 }
