@@ -32,7 +32,7 @@ app.use("/api/auth", authrouter);
 app.use("/api/teacher",Teacherrouter)
 app.use("/api/grade",Graderouter)
 app.use("/api/Notification", Notificationrouter)
-app.use("/api/Attendance",Attendancerouter)
+app.use("/api/attendance",Attendancerouter)
 app.use("/api/Timetable",Timetablerouter)
 app.use("/api/Fee",Feerouter)
 app.use("/api/student",Studentrouter)

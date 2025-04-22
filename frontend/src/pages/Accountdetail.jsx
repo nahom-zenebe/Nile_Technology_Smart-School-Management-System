@@ -10,7 +10,15 @@ const validationSchema = yup.object({
   address: yup.string().required("Address is required"),
   dateOfBirth: yup.string().required("Date of birth is required"),
   subjects: yup.string().required("Subjects are required"),
-  Phone: yup.number().typeError("Phone must be a number").required("Phone number is required"),
+  Phone: yup.number().typeError("Phone must be a number").required("Phone number is required").matches(
+    /^2519[0-9]{8}$/,
+    "Phone must start with 2519 and be 12 digits total (e.g. 251912345678)"
+  )
+  .test(
+    'is-valid-phone',
+    'Phone must start with 2519',
+    value => value?.startsWith('2519')
+  ),
   gender: yup.string().oneOf(["Boy", "Girl"]).required("Gender is required"),
 });
 
@@ -60,6 +68,7 @@ function AccountDetail() {
             <input
               type="text"
               name="Firstname"
+              placeholder="Enter your first name"
               value={formik.values.Firstname}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -76,6 +85,7 @@ function AccountDetail() {
             <input
               type="text"
               name="Lastname"
+              placeholder="Enter your last name"
               value={formik.values.Lastname}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -92,6 +102,7 @@ function AccountDetail() {
             <input
               type="email"
               name="email"
+              placeholder="Enter your email"
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -108,6 +119,7 @@ function AccountDetail() {
             <input
               type="text"
               name="address"
+              placeholder="Enter your address"
               value={formik.values.address}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -156,6 +168,7 @@ function AccountDetail() {
             <input
               type="text"
               name="Phone"
+              placeholder="Enter your phone"
               value={formik.values.Phone}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
