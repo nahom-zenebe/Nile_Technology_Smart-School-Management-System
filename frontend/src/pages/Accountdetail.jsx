@@ -25,6 +25,7 @@ function AccountDetail() {
       subjects: "",
       Phone: "",
       gender: "",
+  
     },
     validationSchema,
     onSubmit: (values) => {

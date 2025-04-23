@@ -51,13 +51,7 @@ const TeacherSchema=new mongoose.Schema({
 
 
 
-      status:{
-        type:String,
-        enum: ['active', 'retired', 'suspended'],
-        default: 'active',
-      }
       
-
 
 
 

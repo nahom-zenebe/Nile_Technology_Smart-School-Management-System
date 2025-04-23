@@ -17,7 +17,7 @@ module.exports.createTeacherprofile = async (req, res) => {
       subjects,
       attendance,
       assignedClasses,
-      status,
+   
     } = req.body;
 
     if (
@@ -28,9 +28,9 @@ module.exports.createTeacherprofile = async (req, res) => {
       !Address ||
       !Dateofbirth ||
       !gender ||
-      !subjects ||
-      !attendance ||
-      !assignedClasses
+      !subjects
+   
+    
     ) {
       return res
         .status(400)
@@ -76,7 +76,7 @@ module.exports.createTeacherprofile = async (req, res) => {
       subjects,
       attendance,
       assignedClasses,
-      status,
+  
     });
 
     await newTeacher.save();
