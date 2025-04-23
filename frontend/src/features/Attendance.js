@@ -12,7 +12,7 @@ const initialState = {
   isUpdating: false,
 };
 
-// Add Attendance
+
 export const addAttendance = createAsyncThunk(
   "attendance/createAttendance",
   async (attendanceData, { rejectWithValue }) => {

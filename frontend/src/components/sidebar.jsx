@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiLogOut } from "react-icons/fi";
 import { IoIosBook, IoIosPeople } from "react-icons/io";
 import { FaChalkboardTeacher, FaUserCircle, FaCalendarAlt } from "react-icons/fa";
@@ -6,73 +6,80 @@ import { MdDashboard, MdAssignmentTurnedIn, MdNotificationsActive, MdSettings } 
 import { BsClipboardData } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { RiArrowDropDownLine } from "react-icons/ri";
-function Sidebar() {
+import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
+
+function Sidebar({ isOpen, setIsOpen }) {
   const dispatch = useDispatch();
   const navigator = useNavigate();
+  
+
+  const toggleSidebar = () => setIsOpen(!isOpen);
 
   return (
-    <div className="flex flex-col w-64 text-white min-h-screen p-6 shadow-lg bg-gradient-to-b from-blue-800 to-blue-900">
-      <div className="text-center mb-10 font-bold text-2xl">
-        <p>LOGO</p>
+    <div className={`flex flex-col ${isOpen ? "w-64" : "w-20"} text-white min-h-screen p-4 shadow-lg bg-gradient-to-b from-blue-800 to-blue-900 transition-all duration-300`}>
+      <div className="flex justify-between items-center mb-10">
+        {isOpen && <p className="text-center font-bold text-2xl">LOGO</p>}
+        <button onClick={toggleSidebar} className="text-white">
+          {isOpen ? <RiArrowLeftSLine size={24} /> : <RiArrowRightSLine size={24} />}
+        </button>
       </div>
 
       <nav className="space-y-2">
-        <div className="flex items-center space-x-3 mt-8 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/Teacherpage/TeacherDashboard" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdDashboard className="text-xl" />
-          <Link to="/Teacherpage/TeacherDashboard">Dashboard</Link>
-        </div>
+          {isOpen && <span>Dashboard</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3 mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <FaChalkboardTeacher className="text-xl" />
-          <Link to="">My Classes</Link>
-        </div>
+          {isOpen && <span>My Classes</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <IoIosBook className="text-xl" />
-          <Link to="">Subjects</Link>
-        </div>
+          {isOpen && <span>Subjects</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/Teacherpage/Attendancepage" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdAssignmentTurnedIn className="text-xl" />
-          <Link to="">Attendance</Link>
-        </div>
+          {isOpen && <span>Attendance</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <FaCalendarAlt className="text-xl" />
-          <Link to="">Timetable</Link>
-        </div>
+          {isOpen && <span>Timetable</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <BsClipboardData className="text-xl" />
-          <Link to="">Grades</Link>
-        </div>
+          {isOpen && <span>Grades</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/Teacherpage/Accountdetail" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <FaUserCircle className="text-xl" />
-          <Link to="/Teacherpage/Accountdetail">Account Setting</Link>
-        </div>
+          {isOpen && <span>Account Setting</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdNotificationsActive className="text-xl" />
-          <Link to="">Notifications</Link>
-        </div>
+          {isOpen && <span>Notifications</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdSettings className="text-xl" />
-          <Link to="">Settings</Link>
-        </div>
+          {isOpen && <span>Settings</span>}
+        </Link>
 
-        <div className="flex items-center space-x-3  mt-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <IoIosPeople className="text-xl" />
-          <Link to="">Users</Link>
-        </div>
+          {isOpen && <span>Users</span>}
+        </Link>
       </nav>
 
       <div className="mt-auto border-t border-white pt-4">
         <div className="flex items-center space-x-3 text-lg hover:text-red-300 cursor-pointer p-2 rounded-md transition">
           <FiLogOut className="text-xl" />
-          <span>Logout</span>
+          {isOpen && <span>Logout</span>}
         </div>
       </div>
     </div>

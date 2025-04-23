@@ -10,16 +10,8 @@ const validationSchema = yup.object({
   address: yup.string().required("Address is required"),
   dateOfBirth: yup.string().required("Date of birth is required"),
   subjects: yup.string().required("Subjects are required"),
-  Phone: yup.number().typeError("Phone must be a number").required("Phone number is required").matches(
-    /^2519[0-9]{8}$/,
-    "Phone must start with 2519 and be 12 digits total (e.g. 251912345678)"
-  )
-  .test(
-    'is-valid-phone',
-    'Phone must start with 2519',
-    value => value?.startsWith('2519')
-  ),
-  gender: yup.string().oneOf(["Boy", "Girl"]).required("Gender is required"),
+  Phone: yup.number().typeError("Phone must be a number").required("Phone number is required"),
+  gender: yup.string().oneOf(["man", "women"]).required("Gender is required"),
 });
 
 function AccountDetail() {
