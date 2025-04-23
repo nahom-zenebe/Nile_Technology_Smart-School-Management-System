@@ -157,7 +157,6 @@ module.exports.updateProfile = async (req, res) => {
   }
 };
 
-// Forgot Password Controller
 module.exports.ForgotPassword = async (req, res) => {
   try {
     // 1) Get user based on POSTED email from the body / the email that we wnat the password to reset
