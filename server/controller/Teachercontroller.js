@@ -27,8 +27,8 @@ module.exports.createTeacherprofile = async (req, res) => {
       !phone ||
       !Address ||
       !Dateofbirth ||
-      !gender ||
-      !subjects
+      !gender 
+
    
     
     ) {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const FeeSchema = new mongoose.Schema({
 
-  studentID: { type: mongoose.Schema.Types.ObjectId,
+  studentId: { type: mongoose.Schema.Types.ObjectId,
      ref: 'Student', 
      required: true },
   amount: { type: Number,

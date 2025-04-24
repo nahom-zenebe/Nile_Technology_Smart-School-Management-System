@@ -24,7 +24,7 @@ const GradeSchema = new Schema({
   },
   examType: {
     type: String,
-    enum: ['Midterm', 'Final', 'Project', 'Quiz', 'Assignment'], // you can adjust values
+    enum: ['Midterm', 'Final', 'Project', 'Quiz', 'Assignment'], 
     required: true
   },
   date: {

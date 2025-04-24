@@ -37,7 +37,7 @@ app.use("/api/attendance",Attendancerouter)
 app.use("/api/Timetable",Timetablerouter)
 app.use("/api/Fee",Feerouter)
 app.use("/api/student",Studentrouter)
-app.use("/api/Subjectrouter",Subjectrouter)
+app.use("/api/Subject",Subjectrouter)
 
 app.listen(PORT, () => {
   MongoDBconfig();

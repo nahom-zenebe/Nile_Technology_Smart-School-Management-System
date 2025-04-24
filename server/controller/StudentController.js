@@ -6,16 +6,16 @@ const Grade = require("../model/Grade");
 module.exports.UpdateProfile=async(req,res)=>{
   try {
       const userId = req.user?._id;
-      const { firstName, lastName, email, phone,Address,Dateofbirth,gender, profileImage,  attendance,grades, feeStatus, status} = req.body;
+      const { firstName, lastName, email, phone,Address,Dateofbirth,gender} = req.body;
 
-      if (!firstName || !lastName || !email || !password ||!Address|| !Dateofbirth|| !gender|| !subjects||!attendance||!grades||! feeStatus||!assignedClasses) {
+      if (!firstName || !lastName || !email  ||!Address|| !Dateofbirth|| !gender) {
           return res
             .status(400)
             .json({ error: "Please provide all neccessary information" });
         }
 
 
-        if (ProfilePic) {
+      /*  if (ProfilePic) {
           try {
             const uploadResponse = await Cloundinary.uploader.upload(ProfilePic, {
               folder: "profile_school_managment_system",
@@ -43,7 +43,7 @@ module.exports.UpdateProfile=async(req,res)=>{
               error: cloudinaryError.message,
             });
           }
-        } 
+        } */
 
 
 
@@ -55,11 +55,8 @@ module.exports.UpdateProfile=async(req,res)=>{
           Address,
           Dateofbirth,
           gender, 
-          profileImage,
-           subjects,
-           attendance, 
-            assignedClasses, 
-            status
+         
+           
          
         });
 
@@ -99,6 +96,15 @@ exports.DeleteProfile = async (req, res) => {
     });
   }
 };
+
+module.exports.getallStudents=async(req,res)=>{
+  try {
+    const allStudents = await Student.find()
+    res.json(allStudents);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
 
 exports.GetAcadamicRecords = async (req, res) => {
   try {

@@ -4,13 +4,17 @@ const {
   UpdateProfile,
   DeleteProfile,
   GetAcadamicRecords,
+  getallStudents
+
 } = require("../controller/StudentController");
 
 const { authmiddleware } = require("../middleware/Authmiddleware");
-router.patch("/profile/:userId", authmiddleware, UpdateProfile);
 
-router.delete("/profile/:userId", authmiddleware, DeleteProfile);
+router.post("/createStudentprofile",UpdateProfile)
+router.get("/getallStudentprofile",getallStudents)
 
-router.get("/academic-records/:userId", authmiddleware, GetAcadamicRecords);
+router.delete("/profile/:userId", DeleteProfile);
+
+router.get("/academic-records", GetAcadamicRecords);
 
 module.exports = router;
