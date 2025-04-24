@@ -3,7 +3,7 @@ const router=express.Router()
 const {createTimetable,getAllTimetables,getTimetableById,updateTimetable,deleteTimetable}=require('../controller/TimetableController')
 
 
-router.post("/TimetableProfile",createTimetable)
+router.post("/createTimetable",createTimetable)
 router.get('/getallTimetable', getAllTimetables);
 router.get('/getTimetable/:TimetableId', getTimetableById);
 router.put('/updateTimetable/:TimetableId', updateTimetable);

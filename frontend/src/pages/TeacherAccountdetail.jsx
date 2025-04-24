@@ -19,11 +19,8 @@ const validationSchema = yup.object({
 
 function TeacherAccountdetail() {
   const dispatch = useDispatch();
-  const { getallTeacher, isTeacheradd } = useSelector((state) => state.Teacher);
+  const { getallTeachers, isTeacheradd } = useSelector((state) => state.Teacher);
 
- /*useEffect(() => {
-    dispatch(gettingallTeacher());
-  }, [dispatch]);*/
 
   const formik = useFormik({
     initialValues: {

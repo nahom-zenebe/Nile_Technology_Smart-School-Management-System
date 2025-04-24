@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 const initialState={
-    getallTeacher:null,
+    getallTeachers:null,
     isallTeacherget:false,
     isTeacheradd:false,
     isTeacherremove:false,
