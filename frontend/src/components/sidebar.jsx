@@ -45,7 +45,7 @@ function Sidebar({ isOpen, setIsOpen }) {
           {isOpen && <span>Attendance</span>}
         </Link>
 
-        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/Teacherpage/Timetable" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <FaCalendarAlt className="text-xl" />
           {isOpen && <span>Timetable</span>}
         </Link>

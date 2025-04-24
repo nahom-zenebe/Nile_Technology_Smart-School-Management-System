@@ -6,7 +6,7 @@ const TimetableSchema = new Schema({
     classId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Class',
-    required: true
+  
   },
   subjectId: {
     type: mongoose.Schema.Types.ObjectId,

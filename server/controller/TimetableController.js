@@ -3,16 +3,16 @@ const Timetable = require('../model/Timetablemodel');
 
 module.exports.createTimetable = async (req, res) => {
   try {
-    const {  classId, subjectId,teacherId,startTime,endTime} = req.body;
+    const {  subjectId,teacherId,startTime,endTime} = req.body;
 
-    if (! classId || !subjectId || !teacherId|| !startTime || !endTime) {
+    if ( !subjectId || !teacherId|| !startTime || !endTime) {
       return res
         .status(400)
         .json({ error: "Please provide all neccessary information" });
     }
 
     const timetable = new Timetable({
-        classId,
+   
          subjectId,
          teacherId,
          startTime,
