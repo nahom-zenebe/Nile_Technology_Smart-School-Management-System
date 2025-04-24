@@ -1,6 +1,6 @@
 const express=require("express")
 const router=express.Router()
-const {createTeacherprofile,getTeacher,searchTeacher,getTeacherById,updateTeacher,deleteTeacher}=require('../controller/TeacherController')
+const {createTeacherprofile,getTeacher,searchTeacher,getTeacherById,updateTeacher,deleteTeacher}=require('../controller/Teachercontroller')
 
 
 router.post("/TeacherProfile",createTeacherprofile)
