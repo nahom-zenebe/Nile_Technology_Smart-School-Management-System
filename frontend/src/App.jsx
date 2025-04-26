@@ -6,7 +6,8 @@ import TeacherDashboardpage from './pages/TeacherDashboardpage';
 import TeacherAccountdetail from './pages/TeacherAccountdetail';
 import toast, { Toaster } from 'react-hot-toast';
 import Timetable from "./pages/Timetable"
-import Attendancepage from './pages/Attendancepage'
+import React from 'react';
+
 function App() {
   return (
     <Router>
@@ -17,7 +18,7 @@ function App() {
         <Route path='/Teacherpage' element={<Teacherpage />}>
           <Route path='TeacherDashboard' element={<TeacherDashboardpage />} />
           <Route path='Accountdetail' element={<TeacherAccountdetail />} />
-          <Route path='Attendancepage' element={<Attendancepage/>} />
+     
           <Route path='Timetable' element={<Timetable/>} />
           
         </Route>

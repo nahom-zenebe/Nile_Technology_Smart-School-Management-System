@@ -2,7 +2,8 @@ import React from 'react';
 import { FaRegCircleUser } from "react-icons/fa6";
 import { HiDotsVertical } from "react-icons/hi";
 import {  useSelector } from "react-redux";
-import image from "../images/user.png";
+
+import man5 from "../assets/man1.webp";
 import { Link } from 'react-router-dom';
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -26,7 +27,7 @@ function TopNavbar() {
        <Link to=''>  
        <img
                 className="border-4  border-blue-500 h-10 w-10 rounded-full object-cover shadow-lg"
-                src={ image}
+                src={man5}
                 alt="Profile"
               /></Link> 
             <div className='text-left'>

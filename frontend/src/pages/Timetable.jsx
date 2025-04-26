@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';  
-import timeGridPlugin from '@fullcalendar/timegrid';  
-import interactionPlugin from '@fullcalendar/interaction'; 
+import React, { useEffect, useState } from "react";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid/index.js";
+import timeGridPlugin from "@fullcalendar/timegrid/index.js";
+import interactionPlugin from "@fullcalendar/interaction/index.js";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllTimetables, addTimetable, removeTimetable, updateTimetable } from "../features/TimeTable";
-import "../Styles/Timetable.css"
-import TopNavbar from '../components/Topnavbar';
+import {
+  fetchAllTimetables,
+  addTimetable,
+  removeTimetable,
+  updateTimetable,
+} from "../features/TimeTable";
+
+import TopNavbar from "../../../frontend/src/components/Topnavbar";
 const Timetable = () => {
   const dispatch = useDispatch();
-  
 
   const { Timetables } = useSelector((state) => state.Teacher);
 
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false); 
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAllTimetables());
   }, [dispatch]);
 
-  
   const handleEventAdd = (info) => {
     const newEvent = {
       title: info.event.title,
@@ -27,11 +30,11 @@ const Timetable = () => {
       end: info.event.end,
       description: info.event.extendedProps.description,
     };
-    dispatch(addTimetable(newEvent)); 
+    dispatch(addTimetable(newEvent));
   };
 
   const handleEventRemove = (info) => {
-    dispatch(removeTimetable(info.event.id)); 
+    dispatch(removeTimetable(info.event.id));
   };
 
   const handleEventUpdate = (info) => {
@@ -42,12 +45,8 @@ const Timetable = () => {
       end: info.event.end,
       description: info.event.extendedProps.description,
     };
-    dispatch(updateTimetable(updatedEvent)); 
+    dispatch(updateTimetable(updatedEvent));
   };
-
-
-  
-
 
   const convertToFullCalendarEvent = (timetable) => {
     return {
@@ -55,7 +54,7 @@ const Timetable = () => {
       //title: `${timetable.subjectId.name} - ${timetable.teacherId.name}`,
       start: new Date(timetable.startTime),
       end: new Date(timetable.endTime),
-     // description: `Class: ${timetable.classId.name}`,
+      // description: `Class: ${timetable.classId.name}`,
     };
   };
 
@@ -63,13 +62,9 @@ const Timetable = () => {
 
   return (
     <div className="block">
-        < TopNavbar/>
+      <TopNavbar />
 
-     
-
-   
-      <div  className='m-10'>
-        
+      <div className="m-10">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="timeGridWeek"
@@ -77,9 +72,9 @@ const Timetable = () => {
           editable={true}
           droppable={true}
           headerToolbar={{
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay',
+            left: "prev,next today",
+            center: "title",
+            right: "dayGridMonth,timeGridWeek,timeGridDay",
           }}
           eventAdd={handleEventAdd}
           eventRemove={handleEventRemove}

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Sidebar from '../components/sidebar';
-import { Outlet } from 'react-router-dom';
+import React, { useState } from "react";
+import Sidebar from "../../../frontend/src/components/sidebar";
+import { Outlet } from "react-router-dom";
 
 function AdminDashboard() {
   const [isOpen, setIsOpen] = useState(true); // Sidebar open by default
@@ -13,7 +13,11 @@ function AdminDashboard() {
       </div>
 
       {/* Main content shifts with sidebar */}
-      <div className={`flex-1 transition-all duration-300 ${isOpen ? 'pl-64' : 'pl-20'}`}>
+      <div
+        className={`flex-1 transition-all duration-300 ${
+          isOpen ? "pl-64" : "pl-20"
+        }`}
+      >
         <Outlet />
       </div>
     </div>

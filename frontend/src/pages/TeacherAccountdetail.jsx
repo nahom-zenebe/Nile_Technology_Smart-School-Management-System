@@ -1,11 +1,11 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { FiUpload, FiTrash2, FiSave, FiX, FiTrash } from "react-icons/fi";
-import TopNavbar from '../components/Topnavbar';
+import TopNavbar from "../../../frontend/src/components/Topnavbar";
 import { useEffect } from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { AddTeacher, RemoveTeacher, EditTeacher, gettingallTeacher } from "../features/Teacher";
+import { AddTeacher, RemoveTeacher, EditTeacher } from "../features/Teacher";
 
 const validationSchema = yup.object({
   Firstname: yup.string().required("Firstname is required"),
@@ -13,14 +13,16 @@ const validationSchema = yup.object({
   email: yup.string().email("Invalid email").required("Email is required"),
   address: yup.string().required("Address is required"),
   dateOfBirth: yup.string().required("Date of birth is required"),
-  Phone: yup.number().typeError("Phone must be a number").required("Phone number is required"),
+  Phone: yup
+    .number()
+    .typeError("Phone must be a number")
+    .required("Phone number is required"),
   gender: yup.string().oneOf(["man", "women"]).required("Gender is required"),
 });
 
 function TeacherAccountdetail() {
   const dispatch = useDispatch();
-  const { getallTeachers, isTeacheradd } = useSelector((state) => state.Teacher);
-
+  const { isTeacheradd } = useSelector((state) => state.Teacher);
 
   const formik = useFormik({
     initialValues: {
@@ -64,13 +66,23 @@ function TeacherAccountdetail() {
               <path d="M6 12L10 16L18 8" stroke="white" strokeWidth="2" />
             </svg>
           </div>
-          <button type="button" className="flex items-center gap-2 px-4 py-2 border text-blue-600 rounded-md hover:bg-blue-50">
+          <button
+            type="button"
+            className="flex items-center gap-2 px-4 py-2 border text-blue-600 rounded-md hover:bg-blue-50"
+          >
             <FiUpload /> Upload
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {["Firstname", "Lastname", "email", "address", "dateOfBirth", "Phone"].map((field) => (
+          {[
+            "Firstname",
+            "Lastname",
+            "email",
+            "address",
+            "dateOfBirth",
+            "Phone",
+          ].map((field) => (
             <div key={field}>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 {field === "dateOfBirth" ? "Date of Birth" : field}
@@ -91,7 +103,9 @@ function TeacherAccountdetail() {
           ))}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Gender
+            </label>
             <select
               name="gender"
               value={formik.values.gender}
@@ -110,14 +124,20 @@ function TeacherAccountdetail() {
         </div>
 
         <div className="flex items-center gap-4 pt-6">
-          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center gap-2">
+          <button
+            type="submit"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center gap-2"
+          >
             <FiSave /> Save Changes
           </button>
-          <button type="button" className="px-4 py-2 border text-gray-700 rounded-md hover:bg-gray-50 flex items-center gap-2">
+          <button
+            type="button"
+            className="px-4 py-2 border text-gray-700 rounded-md hover:bg-gray-50 flex items-center gap-2"
+          >
             <FiX /> Cancel
           </button>
           <button
-            onClick={() => handleDelete("123")} 
+            onClick={() => handleDelete("123")}
             type="button"
             className="ml-auto px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 flex items-center gap-2"
           >
