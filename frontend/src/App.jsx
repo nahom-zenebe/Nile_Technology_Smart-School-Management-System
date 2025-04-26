@@ -4,6 +4,7 @@ import Landingpage from './pages/Landingpage';
 import Teacherpage from './pages/Teacherpage';
 import TeacherDashboardpage from './pages/TeacherDashboardpage'; 
 import TeacherAccountdetail from './pages/TeacherAccountdetail';
+import Notificationpage from "./pages/Notificationpage"
 import toast, { Toaster } from 'react-hot-toast';
 import Timetable from "./pages/Timetable"
 import React from 'react';
@@ -20,6 +21,7 @@ function App() {
           <Route path='Accountdetail' element={<TeacherAccountdetail />} />
      
           <Route path='Timetable' element={<Timetable/>} />
+          <Route path='Notificationpage' element={<Notificationpage/>} />
           
         </Route>
       </Routes>

@@ -16,6 +16,7 @@ function Sidebar({ isOpen, setIsOpen }) {
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   return (
+    <div>
     <div className={`flex flex-col ${isOpen ? "w-64" : "w-20"} text-white min-h-screen p-4 shadow-lg bg-gradient-to-b from-blue-800 to-blue-900 transition-all duration-300`}>
       <div className="flex justify-between items-center mb-10">
         {isOpen && <p className="text-center font-bold text-2xl">LOGO</p>}
@@ -60,7 +61,7 @@ function Sidebar({ isOpen, setIsOpen }) {
           {isOpen && <span>Account Setting</span>}
         </Link>
 
-        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/Teacherpage/Notificationpage" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdNotificationsActive className="text-xl" />
           {isOpen && <span>Notifications</span>}
         </Link>
@@ -82,6 +83,7 @@ function Sidebar({ isOpen, setIsOpen }) {
           {isOpen && <span>Logout</span>}
         </div>
       </div>
+    </div>
     </div>
   );
 }
