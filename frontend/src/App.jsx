@@ -25,6 +25,8 @@ function App() {
           <Route path='timetable' element={<Timetable />} />
           <Route path='notifications' element={<Notificationpage />} />
           <Route path='Class' element={<TeacherClass />} />
+          <Route path='Subject' element={<TeacherSubject />} />
+
    
         </Route>
       </Routes>
