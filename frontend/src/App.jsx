@@ -9,21 +9,23 @@ import Register from './pages/Register';
 import toast, { Toaster } from 'react-hot-toast';
 import Timetable from "./pages/Timetable"
 import React from 'react';
-
+import TeacherClass from './pages/TeacherClass';
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Main routes */}
+
         <Route path='/' element={<Landingpage />} />
         <Route path='/register' element={<Register />} />
         
-        {/* Nested teacher routes */}
+   
         <Route path='/teacher' element={<Teacherpage />}>
           <Route path='dashboard' element={<TeacherDashboardpage />} />
           <Route path='account' element={<TeacherAccountdetail />} />
           <Route path='timetable' element={<Timetable />} />
           <Route path='notifications' element={<Notificationpage />} />
+          <Route path='Class' element={<TeacherClass />} />
+   
         </Route>
       </Routes>
       <Toaster />

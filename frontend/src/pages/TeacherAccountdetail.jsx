@@ -56,6 +56,9 @@ function TeacherAccountdetail() {
     <>
       <TopNavbar />
       <Toaster />
+
+      <h1 className="mt-10 ml-20 font-medium text-3xl text-gray-500">Personal Information</h1>
+      <hr className="mb-10 mt-5"></hr>
       <form
         onSubmit={formik.handleSubmit}
         className="max-w-4xl w-full mx-auto p-6 bg-white rounded-lg shadow-sm space-y-6"
