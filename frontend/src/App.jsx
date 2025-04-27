@@ -5,6 +5,7 @@ import Teacherpage from './pages/Teacherpage';
 import TeacherDashboardpage from './pages/TeacherDashboardpage'; 
 import TeacherAccountdetail from './pages/TeacherAccountdetail';
 import Notificationpage from "./pages/Notificationpage"
+import Register from './pages/Register';
 import toast, { Toaster } from 'react-hot-toast';
 import Timetable from "./pages/Timetable"
 import React from 'react';
@@ -13,20 +14,19 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Main routes */}
         <Route path='/' element={<Landingpage />} />
+        <Route path='/register' element={<Register />} />
         
- 
-        <Route path='/Teacherpage' element={<Teacherpage />}>
-          <Route path='TeacherDashboard' element={<TeacherDashboardpage />} />
-          <Route path='Accountdetail' element={<TeacherAccountdetail />} />
-     
-          <Route path='Timetable' element={<Timetable/>} />
-          <Route path='Notificationpage' element={<Notificationpage/>} />
-          
+        {/* Nested teacher routes */}
+        <Route path='/teacher' element={<Teacherpage />}>
+          <Route path='dashboard' element={<TeacherDashboardpage />} />
+          <Route path='account' element={<TeacherAccountdetail />} />
+          <Route path='timetable' element={<Timetable />} />
+          <Route path='notifications' element={<Notificationpage />} />
         </Route>
       </Routes>
       <Toaster />
-      
     </Router>
   );
 }
