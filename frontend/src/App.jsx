@@ -10,6 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Timetable from "./pages/Timetable"
 import React from 'react';
 import TeacherClass from './pages/TeacherClass';
+import TeacherSubject from './pages/TeacherSubject';
 function App() {
   return (
     <Router>
