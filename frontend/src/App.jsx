@@ -1,3 +1,4 @@
+import React from 'react';
 import './index.css'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landingpage from './pages/Landingpage';
@@ -8,11 +9,10 @@ import Notificationpage from './pages/Notificationpage';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Timetable from './pages/Timetable';
-import Header from './components/Header'; // <-- Add this import!
-import toast, { Toaster } from 'react-hot-toast';
-import React from 'react';
 import TeacherClass from './pages/TeacherClass';
-import TeacherSubject from './pages/TeacherSubject'; // <-- Add this import for TeacherSubject
+import TeacherSubject from './pages/TeacherSubject';
+import Header from './components/Header';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
       <Header />
 
       <Routes>
+        {/* Main routes */}
         <Route path='/' element={<Landingpage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
