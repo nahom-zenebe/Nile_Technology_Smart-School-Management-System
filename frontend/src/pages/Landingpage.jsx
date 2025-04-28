@@ -7,6 +7,7 @@ import man3 from "../assets/man1.webp";
 import man4 from "../assets/man1.webp";
 import man5 from "../assets/man1.webp";
 import { useNavigate } from "react-router-dom";
+
 import {
   FaChalkboardTeacher,
   FaUsers,

@@ -63,7 +63,7 @@ function Sidebar({ isOpen, setIsOpen }) {
                 </li>
                 <li className="flex items-center space-x-3 text-md hover:text-yellow-300 cursor-pointer">
                   <FaCalendarAlt className="text-lg text-yellow-300" />
-                  <span>Schedule</span>
+                  <span onClick={navigate("/TeachersAssignmentpage")}>Schedule</span>
                 </li>
               </ul>
             )}
