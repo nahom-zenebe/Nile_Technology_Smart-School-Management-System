@@ -26,42 +26,42 @@ function Sidebar({ isOpen, setIsOpen }) {
       </div>
 
       <nav className="space-y-2">
-        <Link to="/Teacherpage/TeacherDashboard" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/teacher/dashboard" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdDashboard className="text-xl" />
           {isOpen && <span>Dashboard</span>}
         </Link>
 
-        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/teacher/Class" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <FaChalkboardTeacher className="text-xl" />
           {isOpen && <span>My Classes</span>}
         </Link>
 
-        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/teacher/Subject" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <IoIosBook className="text-xl" />
           {isOpen && <span>Subjects</span>}
         </Link>
 
-        <Link to="/Teacherpage/Attendancepage" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/teacher/Attendancepage" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdAssignmentTurnedIn className="text-xl" />
           {isOpen && <span>Attendance</span>}
         </Link>
 
-        <Link to="/Teacherpage/Timetable" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/teacher/timetable" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <FaCalendarAlt className="text-xl" />
           {isOpen && <span>Timetable</span>}
         </Link>
 
-        <Link to="" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/teacher" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <BsClipboardData className="text-xl" />
           {isOpen && <span>Grades</span>}
         </Link>
 
-        <Link to="/Teacherpage/Accountdetail" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/teacher/account" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <FaUserCircle className="text-xl" />
           {isOpen && <span>Account Setting</span>}
         </Link>
 
-        <Link to="/Teacherpage/Notificationpage" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+        <Link to="/teacher/notifications" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
           <MdNotificationsActive className="text-xl" />
           {isOpen && <span>Notifications</span>}
         </Link>
