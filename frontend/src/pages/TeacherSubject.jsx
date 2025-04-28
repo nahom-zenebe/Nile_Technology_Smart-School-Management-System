@@ -48,7 +48,7 @@ function TeacherSubject() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-300 text-gray-200">
+    <div className="min-h-screen bg-gray-300">
       <TopNavbar />
 
       <div className="container mx-auto px-4 py-8">

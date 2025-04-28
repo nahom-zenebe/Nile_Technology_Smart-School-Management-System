@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Logo from "../assets/logo.png"; // <--- Import your logo image correctly
 import { useState } from "react";
 
@@ -20,27 +21,33 @@ const Header = () => {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="#features"
+          <Link
+              to="/"
               className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
             >
               Home
-            </a>
-            <a
-              href="#testimonials"
-              className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
-            >
-              Features
-            </a>
-            <a
-              href="#faq"
-              className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
-            >
-              Pricing
-            </a>
+          </Link>
+                <Link
+                  to="/#features"
+                  className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
+                >
+                  Features
+                </Link>
+                <Link
+                  to="/#faq"
+                  className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
+                >
+                  Pricing
+                </Link>
           </div>
+          {/* Login Button */}
+          <button
+              className="bg-white text-black w-40 h-12 hover:bg-green-700 hover:text-white rounded-lg transition-colors duration-300"
+              onClick={() => navigate('/login')}
+            >
+              Login
+            </button>
 
-          {/* Register Button */}
           <button
             className="bg-white w-40 h-12 hover:bg-green-700 hover:text-white rounded-lg transition-colors duration-300"
             onClick={() => navigate('/Register')}

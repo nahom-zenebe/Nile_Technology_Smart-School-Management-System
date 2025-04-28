@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../../../frontend/src/components/Header";
 import Footer from "../../../frontend/src/components/Footer";
 import homepageimage from "../assets/homepageimage.png";
 import man1 from "../assets/man1.webp";
@@ -7,7 +6,7 @@ import man2 from "../assets/man1.webp";
 import man3 from "../assets/man1.webp";
 import man4 from "../assets/man1.webp";
 import man5 from "../assets/man1.webp";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   FaChalkboardTeacher,
   FaUsers,
@@ -31,10 +30,10 @@ function Landingpage() {
   };
 
   return (
-    <div>
-      <Header />
-
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="flex flex-col min-h-screen">
+      {/* page content */}
+      <div className="flex-grow max-w-7xl mx-auto px-4 py-8">
+        {/* Hero Section */}
         <section className="flex flex-col-reverse md:flex-row items-center py-16 mt-12 gap-8">
           <div className="w-full md:w-1/2">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
@@ -54,7 +53,7 @@ function Landingpage() {
               >
                 Learn More
               </button>
-              <button className="bg-green-500 hover:bg-green-700 ml-10  text-white font-bold py-3 px-6 rounded-lg">
+              <button className="bg-green-500 hover:bg-green-700 ml-0 sm:ml-10 text-white font-bold py-3 px-6 rounded-lg">
                 Get Started
               </button>
             </div>
@@ -68,16 +67,15 @@ function Landingpage() {
           </div>
         </section>
 
+        {/* Features Section */}
         <section className="py-16 mt-10">
-          <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
             Features
-          </h1>
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: (
-                  <FaChalkboardTeacher className="text-4xl text-blue-500" />
-                ),
+                icon: <FaChalkboardTeacher className="text-4xl text-blue-500" />,
                 title: "Teacher Management",
                 description:
                   "Manage teacher profiles, assignments, and schedules efficiently.",
@@ -112,9 +110,9 @@ function Landingpage() {
                 description:
                   "Track monthly and yearly fees with analytics and charts.",
               },
-            ].map((feature, index) => (
+            ].map((feature, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition"
               >
                 <div className="bg-gray-100 p-4 rounded-full mb-4 flex justify-center items-center">
@@ -146,7 +144,7 @@ function Landingpage() {
                 640: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
               }}
-              loop={true}
+              loop
               autoplay={{ delay: 2500, disableOnInteraction: false }}
               modules={[Autoplay]}
             >
@@ -154,8 +152,8 @@ function Landingpage() {
                 <SwiperSlide key={i}>
                   <div className="bg-white p-6 rounded-lg shadow-md">
                     <p className="text-gray-600 italic mb-4">
-                      “This system is intuitive, reliable, and transformed how
-                      we manage education.”
+                      “This system is intuitive, reliable, and transformed how we
+                      manage education.”
                     </p>
                     <div className="flex items-center">
                       <img
@@ -202,21 +200,21 @@ function Landingpage() {
                 q: "How secure is the system?",
                 a: "Data is encrypted, backed up, and protected with access control.",
               },
-            ].map((item, index) => (
+            ].map((item, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="bg-gray-100 p-6 rounded-lg shadow-md mb-4"
               >
                 <div
                   className="flex justify-between items-center cursor-pointer"
-                  onClick={() => toggleAnswer(index)}
+                  onClick={() => toggleAnswer(idx)}
                 >
                   <h3 className="text-lg font-semibold">{item.q}</h3>
                   <span className="text-xl text-gray-600">
-                    {activeIndex === index ? <FaMinus /> : <FaPlus />}
+                    {activeIndex === idx ? <FaMinus /> : <FaPlus />}
                   </span>
                 </div>
-                {activeIndex === index && (
+                {activeIndex === idx && (
                   <p className="text-gray-600 mt-2">{item.a}</p>
                 )}
               </div>
@@ -225,6 +223,7 @@ function Landingpage() {
         </section>
       </div>
 
+      {/* Footer */}
       <Footer />
     </div>
   );
