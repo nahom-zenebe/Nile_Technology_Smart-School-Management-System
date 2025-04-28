@@ -1,24 +1,32 @@
+import React from 'react';
 import './index.css'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landingpage from './pages/Landingpage';
 import Teacherpage from './pages/Teacherpage';
 import TeacherDashboardpage from './pages/TeacherDashboardpage'; 
 import TeacherAccountdetail from './pages/TeacherAccountdetail';
-import Notificationpage from "./pages/Notificationpage"
+import Notificationpage from './pages/Notificationpage';
 import Register from './pages/Register';
-import toast, { Toaster } from 'react-hot-toast';
-import Timetable from "./pages/Timetable"
-import React from 'react';
+import Login from './pages/Login';
+import Timetable from './pages/Timetable';
 import TeacherClass from './pages/TeacherClass';
+import TeacherSubject from './pages/TeacherSubject';
+import Header from './components/Header';
+import toast, { Toaster } from 'react-hot-toast';
+
 function App() {
   return (
     <Router>
-      <Routes>
+      {/* Always show Header */}
+      <Header />
 
+      <Routes>
+        {/* Main routes */}
         <Route path='/' element={<Landingpage />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        
-   
+
+        {/* Nested teacher routes */}
         <Route path='/teacher' element={<Teacherpage />}>
           <Route path='dashboard' element={<TeacherDashboardpage />} />
           <Route path='account' element={<TeacherAccountdetail />} />
@@ -26,10 +34,9 @@ function App() {
           <Route path='notifications' element={<Notificationpage />} />
           <Route path='Class' element={<TeacherClass />} />
           <Route path='Subject' element={<TeacherSubject />} />
-
-   
         </Route>
       </Routes>
+
       <Toaster />
     </Router>
   );
