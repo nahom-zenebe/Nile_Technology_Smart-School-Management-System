@@ -9,31 +9,27 @@ import Notificationpage from './pages/Notificationpage';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Timetable from './pages/Timetable';
-import TeacherClass from './pages/TeacherClass';
-import TeacherSubject from './pages/TeacherSubject';
-import Header from './components/Header';
+import Header from './components/Header'; // <-- Add this import!
 import toast, { Toaster } from 'react-hot-toast';
+import React from 'react';
+import TeacherClass from './pages/TeacherClass';
+import TeacherSubject from './pages/TeacherSubject'; // <-- Add this import for TeacherSubject
 
 function App() {
   return (
     <Router>
-      {/* Always show Header */}
-      <Header />
-
       <Routes>
         {/* Main routes */}
         <Route path='/' element={<Landingpage />} />
-        <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-
-        {/* Nested teacher routes */}
-        <Route path='/teacher' element={<Teacherpage />}>
-          <Route path='dashboard' element={<TeacherDashboardpage />} />
-          <Route path='account' element={<TeacherAccountdetail />} />
+        <Route path='/login' element={<Login />} /> 
+        
+        
+        <Route path='/teacherpage' element={<Teacherpage />}>
+          <Route path='teacherdashboard' element={<TeacherDashboardpage />} />
+          <Route path='accountdetail' element={<TeacherAccountdetail />} />
           <Route path='timetable' element={<Timetable />} />
-          <Route path='notifications' element={<Notificationpage />} />
-          <Route path='Class' element={<TeacherClass />} />
-          <Route path='Subject' element={<TeacherSubject />} />
+          <Route path='notificationpage' element={<Notificationpage />} />
         </Route>
       </Routes>
 

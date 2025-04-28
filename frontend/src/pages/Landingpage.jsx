@@ -32,18 +32,18 @@ function Landingpage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* page content */}
-      <div className="flex-grow max-w-7xl mx-auto px-4 py-8">
+      <div className="flex-grow max-w-7xl mx-auto py-8">
         {/* Hero Section */}
-        <section className="flex flex-col-reverse md:flex-row items-center py-16 mt-12 gap-8">
-          <div className="w-full md:w-1/2">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+        <section className="w-full h-screen bg-gradient-to-r from-[#360033] to-[#0b8793] flex flex-col-reverse md:flex-row items-center py-16 mt-12 ">
+        <div className=" w-full md:w-1/2 px-8">
+            <h1 className="text-3xl md:text-5xl font-bold text-white -800 mb-6">
               The Future of Smart School
               <br />
-              <span className="block mt-2">
+              <span className="block mt-2 text-white ">
                 Management Is <span className="text-green-700">Here.</span>
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-6">
+            <p className="text-lg md:text-xl text-white -600 mb-6">
               Revolutionizing education with cutting-edge technology
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
