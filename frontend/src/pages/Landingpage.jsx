@@ -53,12 +53,12 @@ function Landingpage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => navigator("/teacher")}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg"
+                className="bg-green-500 hover:bg-green-700 w-40 text-white font-bold py-3 px-6 rounded-lg"
               >
                 Learn More
               </button>
-              <button className="bg-green-500 hover:bg-green-700 ml-0 sm:ml-10 text-white font-bold py-3 px-6 rounded-lg">
-                Get Started
+              <button   onClick={() => navigator('/login')} className="bg-green-500 w-40 hover:bg-green-700 ml-0 sm:ml-10 text-white font-bold py-3 px-6 rounded-lg">
+                Login
               </button>
             </div>
           </div>

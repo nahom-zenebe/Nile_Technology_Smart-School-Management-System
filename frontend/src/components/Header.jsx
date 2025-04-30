@@ -33,12 +33,7 @@ const Header = () => {
               >
                 Features
               </Link>
-              <Link
-                to="/#faq"
-                className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
-              >
-                Pricing
-              </Link>
+              
               <button
                 onClick={() => setShowContactForm(true)}
                 className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
@@ -51,9 +46,9 @@ const Header = () => {
             <div className="flex space-x-2">
               <button
                 className="bg-white text-black w-32 h-10 hover:bg-green-700 hover:text-white rounded-lg transition-colors duration-300 text-sm"
-                onClick={() => navigate('/login')}
+              
               >
-                Login
+                Learn More
               </button>
               <button
                 className="bg-white text-black w-32 h-10 hover:bg-green-700 hover:text-white rounded-lg transition-colors duration-300 text-sm"
