@@ -74,7 +74,7 @@ function Sidebar({ isOpen, setIsOpen }) {
             {isOpen && <span>Subjects</span>}
           </Link>
 
-          <Link to="/teacher/Attendancepage" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+          <Link to="/teacher/ Attendancepage" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
             <MdAssignmentTurnedIn className="text-xl" />
             {isOpen && <span>Attendance</span>}
           </Link>

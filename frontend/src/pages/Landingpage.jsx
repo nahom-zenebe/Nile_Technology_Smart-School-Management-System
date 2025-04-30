@@ -7,7 +7,7 @@ import man3 from "../assets/man1.webp";
 import man4 from "../assets/man1.webp";
 import man5 from "../assets/man1.webp";
 import { useNavigate } from "react-router-dom";
-
+import Header from '../components/Header'
 import {
   FaChalkboardTeacher,
   FaUsers,
@@ -31,17 +31,20 @@ function Landingpage() {
   };
 
   return (
+    <div>
+      <Header/>
+
     <div className="flex flex-col min-h-screen">
       {/* page content */}
       <div className="flex-grow max-w-7xl mx-auto py-8">
         {/* Hero Section */}
-        <section className="w-full h-screen bg-gradient-to-r from-[#360033] to-[#0b8793] flex flex-col-reverse md:flex-row items-center py-16 mt-12 ">
+        <section className="w-full h-screen bg-gradient-to-r  flex flex-col-reverse md:flex-row items-center py-16 mt-12 ">
         <div className=" w-full md:w-1/2 px-8">
-            <h1 className="text-3xl md:text-5xl font-bold text-white -800 mb-6">
-              The Future of Smart School
+            <h1 className="text-3xl md:text-5xl font-bold -800 mb-6">
+              The Future of Smart School  Management
               <br />
-              <span className="block mt-2 text-white ">
-                Management Is <span className="text-green-700">Here.</span>
+              <span className="block mt-2  ">
+               system Is <span className="text-green-700">Here.</span>
               </span>
             </h1>
             <p className="text-lg md:text-xl text-white -600 mb-6">
@@ -226,6 +229,7 @@ function Landingpage() {
 
       {/* Footer */}
       <Footer />
+    </div>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import TeacherAccountdetail from './pages/TeacherAccountdetail';
 import Notificationpage from './pages/Notificationpage';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Attendancepage from './pages/Attendancepage'
 import Timetable from './pages/Timetable';
 import toast, { Toaster } from 'react-hot-toast';
 import TimeTable from './features/TimeTable';
@@ -28,6 +29,7 @@ function App() {
           <Route path='timetable' element={<Timetable />} />
           <Route path='TeachersAssignmentpage' element={<TeachersAssignmentpage />} />
           <Route path='notifications' element={<Notificationpage />} />
+          <Route path=' Attendancepage' element={< Attendancepage/>}/>
     
         </Route>
       </Routes>
