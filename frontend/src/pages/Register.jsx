@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import CampanyLogo from '../assets/logo.png';
-import signup from '../features/Authentication'
+import { signup } from "../features/Authentication";
 import { useNavigate } from 'react-router-dom';
 import BackgroundImage from '../assets/back.png';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
 const Register = () => {
   const [formData, setFormData] = useState({
     firstName: '',
-    lastName:'',
+    lastName: '',
     email: '',
     password: '',
-    confirmpassword: '',
-    role:'',
+    confirmPassword: '',
+    role: '',
     agreeTerms: false,
   });
+
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
-  const { Authuser,isUserSignup } = useSelector((state) => state.authSlice);
   const dispatch = useDispatch();
-  const navigator = useNavigate();
-
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -39,15 +39,13 @@ const Register = () => {
     let isValid = true;
 
     if (!formData.firstName.trim()) {
-      newErrors.firstName = 'fisrtName is required';
+      newErrors.firstName = 'First name is required';
       isValid = false;
     }
     if (!formData.lastName.trim()) {
-      newErrors.lastName = 'lastName is required';
+      newErrors.lastName = 'Last name is required';
       isValid = false;
     }
-
-
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
       isValid = false;
@@ -55,7 +53,6 @@ const Register = () => {
       newErrors.email = 'Email is invalid';
       isValid = false;
     }
-
     if (!formData.password) {
       newErrors.password = 'Password is required';
       isValid = false;
@@ -64,8 +61,13 @@ const Register = () => {
       isValid = false;
     }
 
-    if (formData.password !== formData.p) {
-      newErrors.p = 'Passwords do not match';
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+      isValid = false;
+    }
+
+    if (!formData.role) {
+      newErrors.role = 'Please select a role';
       isValid = false;
     }
 
@@ -78,44 +80,37 @@ const Register = () => {
     return isValid;
   };
 
-
-
-const navigate = useNavigate();
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  if (validateForm()) {
-    dispatch(signup(formData))
-      .then(() => {
-      
-       
-        switch (role) {
-          case "admin":
-            navigate("/admin/dashboard");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      try {
+        await dispatch(signup(formData)).unwrap();
+        
+        switch (formData.role) {
+          case 'admin':
+            navigate('/admin/dashboard');
             break;
-          case "teacher":
-            navigate("teacher");
+          case 'teacher':
+            navigate('/teacher');
             break;
-          case "student":
-            navigate("/student/home");
+          case 'student':
+            navigate('/student/home');
             break;
-          case "administrative":
-            navigate("/admin/manage");
+          case 'administrative':
+            navigate('/admin/manage');
             break;
           default:
-            navigate("/"); 
+            navigate('/');
         }
-      })
-      .catch((error) => {
-        console.error("Signup error:", error);
-      });
-  }
-};
-
+      } catch (error) {
+        console.error('Signup error:', error);
+        
+      }
+    }
+  };
 
   return (
-    <div className="min-h-screen px-12 py-8"> {/* <-- Added page side margin and some vertical padding */}
+    <div className="min-h-screen px-12 py-8">
       <div className="flex h-full">
         {/* Left Section */}
         <div className="w-1/2 flex flex-col items-center justify-center relative">
@@ -138,53 +133,47 @@ const handleSubmit = (e) => {
             <p className="text-gray-600 mb-6">Join our community today</p>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* First Name */}
               <div>
-                <label htmlFor="fullName" className="block text-gray-700 mb-1 font-medium">
-                  First Name
-                </label>
+                <label className="block text-gray-700 mb-1 font-medium">First Name</label>
                 <input
                   type="text"
-                  id="first Name"
-                  name="first Name"
+                  name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`w-full px-4 py-2 border rounded-md ${
                     errors.firstName ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  placeholder="Enter your first Name"
+                  placeholder="Enter your first name"
                 />
-                {errors.firstName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+                {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
               </div>
 
+              {/* Last Name */}
               <div>
-                <label htmlFor="fullName" className="block text-gray-700 mb-1 font-medium">
-                  Last Name
-                </label>
+                <label className="block text-gray-700 mb-1 font-medium">Last Name</label>
                 <input
                   type="text"
-                  id="last Name"
-                  name="last Name"
+                  name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.lastName? 'border-red-500' : 'border-gray-300'
+                  className={`w-full px-4 py-2 border rounded-md ${
+                    errors.lastName ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  placeholder="Enter your first Name"
+                  placeholder="Enter your last name"
                 />
                 {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
               </div>
 
+              {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-gray-700 mb-1 font-medium">
-                  Email Address
-                </label>
+                <label className="block text-gray-700 mb-1 font-medium">Email Address</label>
                 <input
                   type="email"
-                  id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`w-full px-4 py-2 border rounded-md ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="Enter your email"
@@ -192,18 +181,16 @@ const handleSubmit = (e) => {
                 {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
               </div>
 
+              {/* Password */}
               <div>
-                <label htmlFor="password" className="block text-gray-700 mb-1 font-medium">
-                  Password
-                </label>
+                <label className="block text-gray-700 mb-1 font-medium">Password</label>
                 <div className="relative">
                   <input
                     type={showPassword ? 'text' : 'password'}
-                    id="password"
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-4 py-2 border rounded-md ${
                       errors.password ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Create a password"
@@ -219,24 +206,43 @@ const handleSubmit = (e) => {
                 {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
               </div>
 
+              {/* Confirm Password */}
               <div>
-                <label htmlFor="p" className="block text-gray-700 mb-1 font-medium">
-                  Confirm Password
-                </label>
+                <label className="block text-gray-700 mb-1 font-medium">Confirm Password</label>
                 <input
                   type="password"
-                  id="p"
-                  name="p"
-                  value={formData.p}
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.p ? 'border-red-500' : 'border-gray-300'
+                  className={`w-full px-4 py-2 border rounded-md ${
+                    errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="Confirm your password"
                 />
-                {errors.p && <p className="text-red-500 text-sm">{errors.p}</p>}
+                {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
               </div>
 
+              {/* Role */}
+              <div>
+                <label className="block text-gray-700 mb-1 font-medium">Select Role</label>
+                <select
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-md ${
+                    errors.role ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                >
+                  <option value="">-- Select Role --</option>
+                  <option value="admin">Admin</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="student">Student</option>
+                  <option value="administrative">Administrative</option>
+                </select>
+                {errors.role && <p className="text-red-500 text-sm">{errors.role}</p>}
+              </div>
+
+              {/* Terms */}
               <div className="flex items-center">
                 <input
                   id="agreeTerms"
@@ -244,7 +250,7 @@ const handleSubmit = (e) => {
                   type="checkbox"
                   checked={formData.agreeTerms}
                   onChange={handleChange}
-                  className={`w-4 h-4 border rounded focus:ring-blue-500 ${
+                  className={`w-4 h-4 border rounded ${
                     errors.agreeTerms ? 'border-red-500' : 'border-gray-300'
                   }`}
                 />

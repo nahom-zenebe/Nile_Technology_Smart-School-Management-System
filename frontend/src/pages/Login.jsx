@@ -105,7 +105,7 @@ const Login = () => {
 
           {/* Bottom Signup */}
           <p className="text-center text-base pb-10">
-            Don't have an account? <Link to="/signup" className="font-semibold hover:underline">Sign Up</Link>
+            Don't have an account? <Link to="/register" className="font-semibold hover:underline">Sign Up</Link>
           </p>
         </div>
       </div>

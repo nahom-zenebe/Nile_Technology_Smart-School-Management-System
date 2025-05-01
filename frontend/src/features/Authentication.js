@@ -105,42 +105,14 @@ export const updateProfile = createAsyncThunk(
 
 
 
-export const staffUser=createAsyncThunk('auth/staffuser',async(_,{rejectWithValue})=>{
-  try {
-
-    const response=await axiosInstance.get('auth/staffuser',_,{ withCredentials: true });
-    return response.data
-    
-  } catch (error) {
-    return rejectWithValue(error.response?.data?.message || 'Failed to get staff user');
-  }
-})
 
 
 
-export const managerUser=createAsyncThunk('auth/manageruser',async(_,{rejectWithValue})=>{
-  try {
-
-    const response=await axiosInstance.get('auth/manageruser',_,{ withCredentials: true });
-    return response.data
-    
-  } catch (error) {
-    return rejectWithValue(error.response?.data?.message || 'Failed to get manager user');
-  }
-})
 
 
 
-export const adminUser=createAsyncThunk('auth/adminuser',async(_,{rejectWithValue})=>{
-  try {
 
-    const response=await axiosInstance.get('auth/adminuser',_,{ withCredentials: true });
-    return response.data
-    
-  } catch (error) {
-    return rejectWithValue(error.response?.data?.message || 'Failed to get admin  user');
-  }
-})
+
 
 export const removeusers=createAsyncThunk("auth/removeuser",async(UserId,{rejectWithValue})=>{
   try {
@@ -168,10 +140,13 @@ const authSlice = createSlice({
         state.isUserSignup = false;
         state.Authuser = action.payload.savedUser; 
         state.token = action.payload.token; 
+        toast.success("signup successfully")
+        
 
       })
       .addCase(signup.rejected, (state, action) => {
         state.isUserSignup = false;
+        toast.error(" error in signup")
 
       })
 
@@ -183,10 +158,12 @@ const authSlice = createSlice({
         state.isUserLogin = false;
         state.Authuser = action.payload.user; 
         state.token = action.payload.token; 
+        toast.success("Login successfully")
  
       })
       .addCase(login.rejected, (state, action) => {
         state.isUserLogin = false;
+        toast.error(" Error in Login ")
 
       })
 
@@ -213,61 +190,15 @@ const authSlice = createSlice({
       
     
 
-      .addCase(staffUser.fulfilled, (state, action) => {
-     
-        state. staffuser = action.payload
-
-      })
       
-     
-      .addCase(staffUser.rejected,(state,action)=>{
-
- 
-      })
 
       
 
 
-      .addCase(managerUser.fulfilled, (state, action) => {
+      
+     
     
-        state.manageruser = action.payload
-
-      })
       
-     
-      .addCase(managerUser.rejected,(state,action)=>{
-   
-      
-      })
-    
-
-
-
-
-      .addCase(adminUser.fulfilled, (state, action) => {
-      
-        state.adminuser = action.payload
-        
-      })
-      
-     
-      .addCase(adminUser.rejected,(state,action)=>{
-      
-       
-      })
-
-
-      .addCase(removeusers.fulfilled, (state, action) => {
-      
-      
-        
-      })
-      
-     
-      .addCase(removeusers.rejected,(state,action)=>{
-      
-      
-      })
     
 
 
