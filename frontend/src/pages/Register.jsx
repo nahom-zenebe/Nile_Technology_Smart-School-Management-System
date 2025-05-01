@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import CampanyLogo from '../assets/logo.png';
+import signup from '../features/Authentication'
+import { useNavigate } from 'react-router-dom';
 import BackgroundImage from '../assets/back.png';
-
+import { useDispatch,useSelector } from 'react-redux';
 const Register = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    firstName: '',
+    lastName:'',
     email: '',
     password: '',
-    confirmPassword: '',
+    confirmpassword: '',
+    role:'',
     agreeTerms: false,
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const { Authuser,isUserSignup } = useSelector((state) => state.authSlice);
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -30,10 +38,15 @@ const Register = () => {
     const newErrors = {};
     let isValid = true;
 
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required';
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'fisrtName is required';
       isValid = false;
     }
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'lastName is required';
+      isValid = false;
+    }
+
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
@@ -51,8 +64,8 @@ const Register = () => {
       isValid = false;
     }
 
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
+    if (formData.password !== formData.p) {
+      newErrors.p = 'Passwords do not match';
       isValid = false;
     }
 
@@ -65,13 +78,41 @@ const Register = () => {
     return isValid;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      console.log('Form submitted:', formData);
-      // Submit form logic here
-    }
-  };
+
+
+const navigate = useNavigate();
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (validateForm()) {
+    dispatch(signup(formData))
+      .then(() => {
+      
+       
+        switch (role) {
+          case "admin":
+            navigate("/admin/dashboard");
+            break;
+          case "teacher":
+            navigate("teacher");
+            break;
+          case "student":
+            navigate("/student/home");
+            break;
+          case "administrative":
+            navigate("/admin/manage");
+            break;
+          default:
+            navigate("/"); 
+        }
+      })
+      .catch((error) => {
+        console.error("Signup error:", error);
+      });
+  }
+};
+
 
   return (
     <div className="min-h-screen px-12 py-8"> {/* <-- Added page side margin and some vertical padding */}
@@ -99,20 +140,38 @@ const Register = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="fullName" className="block text-gray-700 mb-1 font-medium">
-                  Full Name
+                  First Name
                 </label>
                 <input
                   type="text"
-                  id="fullName"
-                  name="fullName"
-                  value={formData.fullName}
+                  id="first Name"
+                  name="first Name"
+                  value={formData.firstName}
                   onChange={handleChange}
                   className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.fullName ? 'border-red-500' : 'border-gray-300'
+                    errors.firstName ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  placeholder="Enter your full name"
+                  placeholder="Enter your first Name"
                 />
-                {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+                {errors.firstName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="fullName" className="block text-gray-700 mb-1 font-medium">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  id="last Name"
+                  name="last Name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    errors.lastName? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="Enter your first Name"
+                />
+                {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
               </div>
 
               <div>
@@ -161,21 +220,21 @@ const Register = () => {
               </div>
 
               <div>
-                <label htmlFor="confirmPassword" className="block text-gray-700 mb-1 font-medium">
+                <label htmlFor="p" className="block text-gray-700 mb-1 font-medium">
                   Confirm Password
                 </label>
                 <input
                   type="password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
+                  id="p"
+                  name="p"
+                  value={formData.p}
                   onChange={handleChange}
                   className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
+                    errors.p ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="Confirm your password"
                 />
-                {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+                {errors.p && <p className="text-red-500 text-sm">{errors.p}</p>}
               </div>
 
               <div className="flex items-center">
