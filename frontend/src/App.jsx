@@ -6,8 +6,10 @@ import Teacherpage from './pages/Teacherpage';
 import TeacherDashboardpage from './pages/TeacherDashboardpage'; 
 import TeacherAccountdetail from './pages/TeacherAccountdetail';
 import Notificationpage from './pages/Notificationpage';
+import TeacherSubject from './pages/TeacherSubject'
 import Register from './pages/Register';
 import Login from './pages/Login';
+import AdminDashboard from './pages/AdminDashboard'
 import Attendancepage from './pages/Attendancepage'
 import Timetable from './pages/Timetable';
 import toast, { Toaster } from 'react-hot-toast';
@@ -30,8 +32,20 @@ function App() {
           <Route path='TeachersAssignmentpage' element={<TeachersAssignmentpage />} />
           <Route path='notifications' element={<Notificationpage />} />
           <Route path=' Attendancepage' element={< Attendancepage/>}/>
+          <Route path='TeacherSubject' element={<TeacherSubject/>}/>
     
         </Route>
+
+
+        <Route path='/Admin' element={<AdminDashboard/>}>
+          <Route path='AdminDashboard' element={<TeacherDashboardpage />} />
+          
+    
+        </Route>
+
+
+
+     
       </Routes>
 
       <Toaster />

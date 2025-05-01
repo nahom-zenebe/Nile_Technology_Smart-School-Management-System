@@ -69,7 +69,7 @@ function Sidebar({ isOpen, setIsOpen }) {
             )}
           </div>
 
-          <Link to="/teacher/Subject" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+          <Link to="/teacher/TeacherSubject" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
             <IoIosBook className="text-xl" />
             {isOpen && <span>Subjects</span>}
           </Link>
