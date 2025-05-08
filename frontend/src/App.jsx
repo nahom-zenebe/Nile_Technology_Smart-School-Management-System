@@ -13,6 +13,8 @@ import AdminDashboard from './pages/AdminDashboard'
 import Attendancepage from './pages/Attendancepage'
 import Timetable from './pages/Timetable';
 import toast, { Toaster } from 'react-hot-toast';
+import   AdminTeacher from './pages/AdminTeacher';
+import Adminpage from './pages/Adminpage'
 import TimeTable from './features/TimeTable';
 import TeachersAssignmentpage from "./pages/TeachersAssignmentpage"
 function App() {
@@ -37,8 +39,10 @@ function App() {
         </Route>
 
 
-        <Route path='/Admin' element={<AdminDashboard/>}>
-          <Route path='AdminDashboard' element={<TeacherDashboardpage />} />
+        <Route path='/Admin' element={<Adminpage/>}>
+          <Route path='AdminDashboard' element={<AdminDashboard />} />
+          <Route path='AdminTeacher' element={<AdminTeacher/>} />
+       
           
     
         </Route>
