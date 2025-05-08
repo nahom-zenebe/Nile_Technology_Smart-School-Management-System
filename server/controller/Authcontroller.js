@@ -7,19 +7,15 @@ const sendEmail = require("../lib/email");
 
 module.exports.signup = async (req, res) => {
   try {
-    const { firstName, lastName, email, password, confirmpassword, role } = req.body;
+    const { firstName, lastName, email, password,  role } = req.body;
 
-    if (!firstName || !lastName || !email || !password || !role ||! confirmpassword) {
+    if (!firstName || !lastName || !email || !password || !role ) {
       return res
         .status(400)
         .json({ error: "Please provide all neccessary information" });
     }
 
-    if (password!=confirmpassword){
-      return res
-      .status(400)
-      .json({ error: "please enter the same as password" });
-    }
+   
     const validRoles = ["Teacher", "Manager", "Admin", "Student"];
     if (!validRoles.includes(role)) {
       return res.status(400).json({

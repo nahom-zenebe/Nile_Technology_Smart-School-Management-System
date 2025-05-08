@@ -20,10 +20,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    confirmpassword:{
-      type: String,
-      required: true,
-    },
+   
     role: {
       type: String,
       enum: ["Teacher", "Manager", "Admin", "Student"],

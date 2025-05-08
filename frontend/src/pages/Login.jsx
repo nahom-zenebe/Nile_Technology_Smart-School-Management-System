@@ -2,21 +2,51 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Google from "../assets/icons8-google.svg";
 import CampanyLogo from '../assets/logo.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { login} from "../features/Authentication";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ email, password, rememberMe });
-  };
+const {Authuser}=useSelector((state) => state.auth);
+ 
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    await dispatch(login({ email, password }));
+    switch (Authuser.user.role) {
+      case 'admin':
+        navigate('/admin/dashboard');
+        break;
+      case 'teacher':
+        navigate('/teacher');
+        break;
+      case 'student':
+        navigate('/student/home');
+        break;
+      case 'administrative':
+        navigate('/admin/manage');
+        break;
+      default:
+        navigate('/');
+    }
+  } catch (error) {
+    console.error("Error in Login:", error);
+  }
+};
+
 
   const handleGoogleLogin = () => {
     console.log("Google login clicked");
   };
+
 
   return (
     <div className="flex min-h-screen font-poppins">

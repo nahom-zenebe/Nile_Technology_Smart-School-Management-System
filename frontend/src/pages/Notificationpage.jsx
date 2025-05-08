@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { FiSearch, FiBell, FiStar, FiFile, FiTrash2, FiMoreHorizontal, FiChevronDown, FiCheck } from "react-icons/fi"
 import TopNavbar from "../../../frontend/src/components/Topnavbar";
+import man5 from "../assets/man1.webp";
  function Notificationpage() {
   const [activeTab, setActiveTab] = useState("all")
 
@@ -15,7 +16,7 @@ import TopNavbar from "../../../frontend/src/components/Topnavbar";
     return (
         <>
   
-      
+ 
       <div key={id} className="flex items-center p-4 border-b border-gray-100 hover:bg-gray-50">
         {isRead ? (
           <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
@@ -23,9 +24,11 @@ import TopNavbar from "../../../frontend/src/components/Topnavbar";
           <div className="w-2 h-2 opacity-0 mr-2"></div>
         )}
 
-        <button className="text-gray-400 hover:text-yellow-500 mr-2">
-          {isStarred ? <FiStar className="w-5 h-5 fill-yellow-400 text-yellow-400" /> : <FiStar className="w-5 h-5" />}
-        </button>
+<img
+                className="border-4  border-blue-500 h-10 w-10 rounded-full object-cover shadow-lg"
+                src={man5}
+                alt="Profile"
+              />
 
         <div className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-md mr-3">
           <FiFile className="w-4 h-4 text-gray-600" />
@@ -46,7 +49,7 @@ import TopNavbar from "../../../frontend/src/components/Topnavbar";
     <>
           <TopNavbar className="mb-10"/>
      
-    <div className="mx-10 mt-10 mx-auto  rounded-lg shadow-sm">
+    <div className="mx-10 mt-10  rounded-lg shadow-sm">
     
       
 

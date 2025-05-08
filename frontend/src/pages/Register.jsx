@@ -11,7 +11,7 @@ const Register = () => {
     lastName: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    confirmpassword: '',
     role: '',
     agreeTerms: false,
   });
@@ -61,8 +61,8 @@ const Register = () => {
       isValid = false;
     }
 
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
+    if (formData.password !== formData.confirmpassword) {
+      newErrors.confirmpassword = 'Passwords do not match';
       isValid = false;
     }
 
@@ -84,8 +84,10 @@ const Register = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        await dispatch(signup(formData)).unwrap();
+        const { confirmpassword, agreeTerms, ...payload } = formData;
+        await dispatch(signup(payload)).unwrap();
         
+     
         switch (formData.role) {
           case 'admin':
             navigate('/admin/dashboard');
@@ -211,15 +213,15 @@ const Register = () => {
                 <label className="block text-gray-700 mb-1 font-medium">Confirm Password</label>
                 <input
                   type="password"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
+                  name="confirmpassword"
+                  value={formData.confirmpassword}
                   onChange={handleChange}
                   className={`w-full px-4 py-2 border rounded-md ${
-                    errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
+                    errors.confirmpassword ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="Confirm your password"
                 />
-                {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+                {errors.confirmpassword && <p className="text-red-500 text-sm">{errors.confirmpassword}</p>}
               </div>
 
               {/* Role */}
@@ -234,10 +236,10 @@ const Register = () => {
                   }`}
                 >
                   <option value="">-- Select Role --</option>
-                  <option value="admin">Admin</option>
-                  <option value="teacher">Teacher</option>
-                  <option value="student">Student</option>
-                  <option value="administrative">Administrative</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Student">Student</option>
+                  <option value="Manager">Administrative</option>
                 </select>
                 {errors.role && <p className="text-red-500 text-sm">{errors.role}</p>}
               </div>

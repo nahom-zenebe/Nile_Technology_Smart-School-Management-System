@@ -55,11 +55,11 @@ function Sidebar({ isOpen, setIsOpen }) {
               <ul className="pl-12 mt-2 space-y-3">
                 <li className="flex items-center space-x-3 text-md hover:text-yellow-300 cursor-pointer">
                   <FaUserGraduate className="text-lg text-yellow-300" />
-                  <span>Students</span>
+                  <span onClick={navigate("/")}>Students</span>
                 </li>
                 <li className="flex items-center space-x-3 text-md hover:text-yellow-300 cursor-pointer">
                   <MdAssignmentTurnedIn className="text-lg text-yellow-300" />
-                  <span>Assignments</span>
+                  <span onClick={navigate("/")}>Assignments</span>
                 </li>
                 <li className="flex items-center space-x-3 text-md hover:text-yellow-300 cursor-pointer">
                   <FaCalendarAlt className="text-lg text-yellow-300" />
