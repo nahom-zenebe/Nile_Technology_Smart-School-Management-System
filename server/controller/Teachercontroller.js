@@ -96,9 +96,7 @@ module.exports.createTeacherprofile = async (req, res) => {
 module.exports.getTeacher = async (req, res) => {
   try {
     const teachers = await Teacher.find()
-      .populate("subjects")
-      .populate("attendance")
-      .populate("assignedClasses");
+     
 
     res.status(200).json(teachers);
   } catch (error) {

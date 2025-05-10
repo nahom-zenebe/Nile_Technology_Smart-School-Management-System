@@ -5,7 +5,7 @@ import { FaChalkboardTeacher, FaUserCircle, FaCalendarAlt, FaUserGraduate } from
 import { MdDashboard, MdAssignmentTurnedIn, MdNotificationsActive, MdSettings } from "react-icons/md";
 import { BsClipboardData } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux"; // ✅ Fix: added useSelector
+import { useDispatch, useSelector } from "react-redux"; 
 import { RiArrowLeftSLine, RiArrowRightSLine, RiArrowDropDownLine } from "react-icons/ri";
 import CampanyLogo from '../assets/logo.png';
 
