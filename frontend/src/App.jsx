@@ -1,4 +1,3 @@
-
 import './index.css'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landingpage from './pages/Landingpage';
@@ -13,10 +12,13 @@ import AdminDashboard from './pages/AdminDashboard'
 import Attendancepage from './pages/Attendancepage'
 import Timetable from './pages/Timetable';
 import toast, { Toaster } from 'react-hot-toast';
-import   AdminTeacher from './pages/AdminTeacher';
+import AdminTeacher from './pages/AdminTeacher';
 import Adminpage from './pages/Adminpage'
 import TimeTable from './features/TimeTable';
 import TeachersAssignmentpage from "./pages/TeachersAssignmentpage"
+import FeePage from './pages/FeePage';
+import StudentManagement from './pages/StudentManagement';
+
 function App() {
   return (
     <Router>
@@ -33,18 +35,17 @@ function App() {
           <Route path='timetable' element={<Timetable />} />
           <Route path='TeachersAssignmentpage' element={<TeachersAssignmentpage />} />
           <Route path='notifications' element={<Notificationpage />} />
-          <Route path=' Attendancepage' element={< Attendancepage/>}/>
+          <Route path='Attendancepage' element={<Attendancepage/>}/>
           <Route path='TeacherSubject' element={<TeacherSubject/>}/>
-    
         </Route>
 
 
         <Route path='/Admin' element={<Adminpage/>}>
           <Route path='AdminDashboard' element={<AdminDashboard />} />
           <Route path='AdminTeacher' element={<AdminTeacher/>} />
-       
-          
-    
+          <Route path='Timetable' element={<Timetable/>} />
+          <Route path='fee' element={<FeePage/>} />
+          <Route path='students' element={<StudentManagement/>} />
         </Route>
 
 
