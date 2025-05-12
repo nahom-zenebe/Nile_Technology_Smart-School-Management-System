@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full bg-black shadow-lg h-24 pt-5 px-5 z-50">
+      <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-gray-900 to-gray-800 shadow-lg h-24 pt-5 px-5 z-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center">
             {/* Logo and Title */}
@@ -23,20 +23,20 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-4">
               <Link
                 to="/"
-                className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
+                className="py-2 px-4 text-white font-semibold hover:text-green-400 transition duration-300"
               >
                 Home
               </Link>
               <Link
                 to="/#features"
-                className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
+                className="py-2 px-4 text-white font-semibold hover:text-green-400 transition duration-300"
               >
                 Features
               </Link>
               
               <button
                 onClick={() => setShowContactForm(true)}
-                className="py-2 px-4 text-white font-semibold hover:text-green-500 transition duration-300"
+                className="py-2 px-4 text-white font-semibold hover:text-green-400 transition duration-300"
               >
                 Contact
               </button>
@@ -45,13 +45,12 @@ const Header = () => {
             {/* Login & Register Buttons */}
             <div className="flex space-x-2">
               <button
-                className="bg-white text-black w-32 h-10 hover:bg-green-700 hover:text-white rounded-lg transition-colors duration-300 text-sm"
-              
+                className="bg-green-500 hover:bg-green-600 text-white w-32 h-10 rounded-lg transition-colors duration-300 text-sm"
               >
                 Learn More
               </button>
               <button
-                className="bg-white text-black w-32 h-10 hover:bg-green-700 hover:text-white rounded-lg transition-colors duration-300 text-sm"
+                className="bg-gradient-to-r from-green-500 to-blue-500 text-white w-32 h-10 hover:from-green-600 hover:to-blue-600 rounded-lg transition-colors duration-300 text-sm"
                 onClick={() => navigate('/register')}
               >
                 Register Now
@@ -66,7 +65,7 @@ const Header = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 pt-24">
           <div
             style={{
-              background: 'linear-gradient(to right, rgba(15,12,41,0.8), rgba(48,43,99,0.8), rgba(36,36,62,0.8))'
+              background: 'linear-gradient(to right, rgba(22, 28, 36, 0.9), rgba(48, 54, 61, 0.9))'
             }}
             className="backdrop-blur-md rounded-lg p-6 max-w-sm w-full mx-4 relative"
           >
@@ -85,16 +84,16 @@ const Header = () => {
 
             {/* Contact Form */}
             <form
-              className="space-y-3 p-6 rounded-lg shadow-2xl border-2 border-white"
+              className="space-y-3 p-6 rounded-lg shadow-2xl border-2 border-gray-700"
               style={{
-                background: 'linear-gradient(to right, rgba(15,12,41,0.8), rgba(48,43,99,0.8), rgba(36,36,62,0.8))'
+                background: 'linear-gradient(to right, rgba(31, 41, 55, 0.8), rgba(38, 47, 61, 0.8))'
               }}
             >
               <div>
                 <label className="block text-gray-300 text-sm mb-1">Name:</label>
                 <input
                   type="text"
-                  className="w-full px-3 py-2 border border-white rounded-md shadow-md bg-black/30 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm text-white placeholder-white"
+                  className="w-full px-3 py-2 border border-gray-600 rounded-md shadow-md bg-gray-800/50 focus:ring-2 focus:ring-green-400 focus:border-green-400 text-sm text-white placeholder-gray-400"
                   placeholder="Enter your name"
                 />
               </div>
@@ -103,7 +102,7 @@ const Header = () => {
                 <label className="block text-gray-300 text-sm mb-1">Email:</label>
                 <input
                   type="email"
-                  className="w-full px-3 py-2 border border-white rounded-md shadow-md bg-black/30 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm text-white placeholder-white"
+                  className="w-full px-3 py-2 border border-gray-600 rounded-md shadow-md bg-gray-800/50 focus:ring-2 focus:ring-green-400 focus:border-green-400 text-sm text-white placeholder-gray-400"
                   placeholder="example@email.com"
                 />
               </div>
@@ -111,7 +110,7 @@ const Header = () => {
               <div>
                 <label className="block text-gray-300 text-sm mb-1">Phone:</label>
                 <div className="flex">
-                <select className=" py-2 border border-white bg-black/30 text-white text-sm rounded-l-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <select className=" py-2 border border-gray-600 bg-gray-800/50 text-white text-sm rounded-l-md focus:ring-2 focus:ring-green-400 focus:border-green-400">
   <option value="+251">Ethiopia(+251)</option>
   <option value="+1">USA(+1)</option>
   <option value="+44">United Kingdom (+44)</option>
@@ -135,7 +134,7 @@ const Header = () => {
 
                   <input
                     type="tel"
-                    className="w-full px-3 py-2 border border-l-0 border-white bg-black/30 text-white text-sm rounded-r-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-white"
+                    className="w-full px-3 py-2 border border-l-0 border-gray-600 bg-gray-800/50 text-white text-sm rounded-r-md focus:ring-2 focus:ring-green-400 focus:border-green-400 placeholder-gray-400"
                     placeholder="Phone number"
                   />
                 </div>
@@ -144,7 +143,7 @@ const Header = () => {
               <div>
                 <label className="block text-gray-300 text-sm mb-1">Details:</label>
                 <textarea
-                  className="w-full px-3 py-2 border border-white rounded-md shadow-md bg-black/30 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm text-white placeholder-white"
+                  className="w-full px-3 py-2 border border-gray-600 rounded-md shadow-md bg-gray-800/50 focus:ring-2 focus:ring-green-400 focus:border-green-400 text-sm text-white placeholder-gray-400"
                   rows="3"
                   placeholder="Enter your message"
                 />
@@ -152,7 +151,7 @@ const Header = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors text-sm shadow-lg"
+                className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 rounded-md hover:from-green-600 hover:to-blue-600 transition-colors text-sm shadow-lg"
               >
                 Submit
               </button>
