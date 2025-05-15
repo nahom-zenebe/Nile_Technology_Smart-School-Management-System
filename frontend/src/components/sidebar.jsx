@@ -30,7 +30,7 @@ function Sidebar({ isOpen, setIsOpen }) {
         </div>
 
         <nav className="space-y-2">
-          <Link to={`/${Authuser.role}/dashboard`} className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
+          <Link to={`/${Authuser?.role}/dashboard`} className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
             <MdDashboard className="text-xl" />
             {isOpen && <span>Dashboard</span>}
           </Link>

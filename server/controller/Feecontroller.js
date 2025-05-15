@@ -5,10 +5,10 @@ module.exports.createFee = async (req, res) => {
   try {
 
 
-    const { studentId,amount, dueDate, paidStatus,  paymentDate,paymentMethod}=req.body;
+    const { studentId,description,amount, dueDate, paidStatus,  paymentDate,paymentMethod}=req.body;
 
 
-    if ( !studentId||!amount|| !dueDate||! paidStatus||!  paymentDate||!paymentMethod) {
+    if ( !studentId||! description||!amount|| !dueDate||! paidStatus||!  paymentDate||!paymentMethod) {
         return res
           .status(400)
           .json({ error: "Please provide all neccessary information" });
@@ -17,7 +17,9 @@ module.exports.createFee = async (req, res) => {
 
     const fee = new Fee({
         studentId,
-        amount, dueDate,
+        description,
+        amount, 
+        dueDate,
          paidStatus, 
           paymentDate,
           paymentMethod, 

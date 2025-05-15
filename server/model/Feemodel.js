@@ -7,6 +7,10 @@ const FeeSchema = new mongoose.Schema({
      required: true },
   amount: { type: Number,
      required: true },
+     description:{
+      type:String
+
+     },
   dueDate: { type: Date,
      required: true },
   paidStatus: { type: Boolean, 
