@@ -15,6 +15,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import AdminTeacher from './pages/AdminTeacher';
 import Adminpage from './pages/Adminpage'
 import TimeTable from './features/TimeTable';
+import Adminclass from './pages/Adminclass'
 import TeachersAssignmentpage from "./pages/TeachersAssignmentpage"
 import FeePage from './pages/FeePage';
 import StudentManagement from './pages/StudentManagement';
