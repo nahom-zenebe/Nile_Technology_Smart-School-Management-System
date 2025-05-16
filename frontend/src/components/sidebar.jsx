@@ -36,7 +36,7 @@ function Sidebar({ isOpen, setIsOpen }) {
           </Link>
 
           {/* ==== TEACHER SECTION ==== */}
-          {Authuser.role === "teacher" && (
+          {Authuser.role === "Teacher" && (
             <>
               <div className="relative">
                 <button
@@ -91,7 +91,7 @@ function Sidebar({ isOpen, setIsOpen }) {
           )}
 
           {/* ==== STUDENT SECTION ==== */}
-          {Authuser.role === "student" && (
+          {Authuser.role === "Student" && (
             <>
               <Link to="/student/courses" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
                 <IoIosBook className="text-xl" />
@@ -109,7 +109,7 @@ function Sidebar({ isOpen, setIsOpen }) {
           )}
 
           {/* ==== ADMIN / MANAGER SECTION ==== */}
-          {(Authuser.role === "admin" || Authuser.role === "manager") && (
+          {(Authuser.role === "Admin" || Authuser.role === "Manager") && (
             <>
               <Link to="/admin/users" className="flex items-center space-x-3 hover:text-yellow-300 cursor-pointer p-2 rounded-md transition">
                 <IoIosPeople className="text-xl" />

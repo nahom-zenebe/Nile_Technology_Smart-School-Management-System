@@ -19,7 +19,8 @@ import Adminclass from './pages/Adminclass'
 import TeachersAssignmentpage from "./pages/TeachersAssignmentpage"
 import FeePage from './pages/FeePage';
 import StudentManagement from './pages/StudentManagement';
-
+import Studentpage from "./pages/Studentpage"
+import StudentAccountdetails from "./pages/StudentAccountdetails"
 function App() {
   return (
     <Router>
@@ -46,10 +47,19 @@ function App() {
           <Route path='AdminTeacher' element={<AdminTeacher/>} />
           <Route path='Timetable' element={<Timetable/>} />
           <Route path='fee' element={<FeePage/>} />
-          <Route path='students' element={<StudentManagement/>} />
+          <Route path='studentsDashboard' element={<StudentManagement/>} />
+        
         </Route>
 
+        <Route path='/Student' element={<Studentpage/>}>
+        <Route path='StudentAccountdetails' element={<StudentAccountdetails/>} />
+       
+        </Route>
 
+        <Route path='/Managerpage' element={<Managerpage/>}>
+        <Route path='ManagerAccountdetails' element={<ManagerAccountdetails/>} />
+        
+        </Route>
 
      
       </Routes>
