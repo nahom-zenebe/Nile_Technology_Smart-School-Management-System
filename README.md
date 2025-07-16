@@ -5,6 +5,7 @@
 - Abdi Debela
 - Abdi Kumela
 - Nahom Zenebe
+- Andamlak Abza
 
 A modern, full-stack MERN application designed to streamline school administration and enhance the educational experience for administrators, teachers, students, and staff.
 
